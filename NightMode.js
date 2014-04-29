@@ -15,7 +15,7 @@ nightMode.init = function()
   var nightButton = document.createElement('button');
   nightButton.setAttribute('id', 'nightButton');
   nightButton.setAttribute('onClick', 'nightMode.toggle()');
-  nightButton.setAttribute('value', 'Night Mode');
+  nightButton.innerHTML = 'Night Mode';
   document.getElementById('yt-masthead-content').appendChild(nightButton);
   
   this.isNight = false;

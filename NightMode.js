@@ -6,10 +6,10 @@ nightMode.init = function()
   this.pageElements = [];
   
   //Format: ['element': Element, 'background': ['day': Day background color, 'night': Night background color], 'text': ['day': Day text color, 'night': Night text color]];
-  this.pageElements[0] = ['element': document.body,
-    'background': {
-      'day': '#f1f1f1',
-      'night': '#0e0e0e'
+  this.pageElements[0] = ["element": document.body,
+    "background": {
+      "day": '#f1f1f1',
+      "night": '#0e0e0e'
       }
     ];
   this.pageElements[1] = ['element': document.getElementById('yt-masthead-container'), 'background': {'day': '#fff',    'night': '#000'}];

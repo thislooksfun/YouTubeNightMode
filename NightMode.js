@@ -9,6 +9,8 @@ nightMode.init = function() {
   
   alert('Color = ' + this.pageElements[0].style.color +'\nBackground = ' + this.pageElements[0].style.background);
   alert('Background = ' + document.body.style.background);
+  
+  document.body.style.background = '#000'
 }
 
 nightMode.toggleNight = function() {

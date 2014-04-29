@@ -13,13 +13,14 @@ nightMode.init = function()
   this.pageElements[eleNum++] = {'element': document.getElementById('masthead-search-terms'), 'background': {'day': '#fff',    'night': '#000'}, 'text': {'day': '#666', 'night': '#999'}};
   this.pageElements[eleNum++] = {'element': document.getElementById('appbar-guide-button'),   'background': {'day': '#f8f8f8', 'night': '#070707'}, 'opacity': 0};
   
-  
-  var nightButton = document.createElement('button');
-  nightButton.setAttribute('id', 'nightButton');
-  nightButton.setAttribute('onClick', 'nightMode.toggle()');
-  nightButton.setAttribute('class', 'yt-uix-button yt-uix-button-default yt-uix-button-size-default')
-  nightButton.innerHTML = 'Night Mode';
-  document.getElementById('yt-masthead-content').appendChild(nightButton);
+  if (!document.getElementById('nightButton')) {
+    var nightButton = document.createElement('button');
+    nightButton.setAttribute('id', 'nightButton');
+    nightButton.setAttribute('onClick', 'nightMode.toggle()');
+    nightButton.setAttribute('class', 'yt-uix-button yt-uix-button-default yt-uix-button-size-default')
+    nightButton.innerHTML = 'Night Mode';
+    document.getElementById('yt-masthead-content').appendChild(nightButton);
+  }
   
   this.isNight = false;
   this.initalized = true;

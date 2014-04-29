@@ -1,9 +1,8 @@
 window.nightMode = {};
 
 //Functions
-nightMode.init = function() {
-  alert('Hello!')
-  
+nightMode.init = function()
+{
   this.pageElements = [];
   
   //Format: ['element': Element, 'background': ['day': Day background color, 'night': Night background color], 'text': ['day': Day text color, 'night': Night text color]];
@@ -16,7 +15,8 @@ nightMode.init = function() {
   this.isNight = false;
 }
 
-nightMode.setNight = function() {
+nightMode.setNight = function()
+{
   for (var i = 0; i < this.pageElements.length; i++) {
     this.pageElements[i].element.style.background = this.pageElements[i].background.night
     if (this.pageElements[i].text) {
@@ -28,7 +28,8 @@ nightMode.setNight = function() {
   this.isNight = true;
 }
 
-nightMode.setDay = function() {
+nightMode.setDay = function()
+{
   for (var i = 0; i < this.pageElements.length; i++) {
     this.pageElements[i].element.style.background = this.pageElements[i].background.day
     if (this.pageElements[i].text) {
@@ -40,7 +41,8 @@ nightMode.setDay = function() {
   this.isNight = false;
 }
 
-nightMode.toggle = function() {
+nightMode.toggle = function()
+{
   if (this.isNight) {
     this.setDay();
   } else {
@@ -48,6 +50,8 @@ nightMode.toggle = function() {
   }
 }
 
+
+//Startup Code
 nightMode.init();
 
 nightMode.toggle();

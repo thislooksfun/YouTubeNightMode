@@ -5,16 +5,24 @@ nightMode.init = function() {
   alert('Hello!')
   
   this.pageElements = [];
-  this.pageElements[0] = document.getElementById('yt-masthead-container');
+  
+  //Format: [Element, Day color, Night color]
+  this.pageElements[0] = [document.body, '#f1f1f1', '#0e0e0e'];
+  this.pageElements[1] = [document.getElementById('yt-masthead-container'), '#fff', '#000'];
+  this.pageElements[1] = [docuemtn.getElementById('yt-uix-button-content'), '#fff', '#000'];
 }
 
 nightMode.toggleNight = function() {
-  document.body.style.background = '#0e0e0e'
+  for (var i = 0; i < this.pageElements.length; i++) {
+    this.pageElements[i][0].style.background = this.pageElements[i][2]
+  }
   alert('Night mode');
 }
 
 nightMode.toggleDay = function() {
-  document.body.style.background = '#f1f1f1'
+  for (var i = 0; i < this.pageElements.length; i++) {
+    this.pageElements[i][0].style.background = this.pageElements[i][1]
+  }
   alert('Day mode');
 }
 

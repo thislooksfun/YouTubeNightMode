@@ -15,9 +15,13 @@ nightMode.init = function() {
 }
 
 nightMode.setNight = function() {
-  for (var i = 0; i < this.pageElements.length; i++) {
-    this.pageElements[i][0].style.background = this.pageElements[i][2]
-  }
+  //for (var i = 0; i < this.pageElements.length; i++) {
+  //  this.pageElements[i][0].style.background = this.pageElements[i][2]
+  //}
+  
+  this.pageElements[0][0].style.background = this.pageElements[0][2]
+  this.pageElements[1][0].style.background = this.pageElements[1][2]
+  this.pageElements[2][0].style.background = this.pageElements[2][2]
   alert('Night mode');
   
   this.isNight = true;

@@ -6,4 +6,6 @@ javascript:(
     js.setAttribute('src', 'https://raw.githubusercontent.com/thislooksfun/YouTubeNightMode/master/NightMode.js');
     document.head.appendChild(js);
  }()
+ 
+ nightMode.init();
 );

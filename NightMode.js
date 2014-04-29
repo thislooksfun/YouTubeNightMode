@@ -19,8 +19,6 @@ nightMode.init = function()
   nightButton.innerHTML = 'Night Mode';
   document.getElementById('yt-masthead-content').appendChild(nightButton);
   
-  //<a href="//www.youtube.com/upload" class="yt-uix-button   yt-uix-sessionlink yt-uix-button-default yt-uix-button-size-default" data-sessionlink="ei=9xxgU5eaCYj7qAPqqYDwDA&amp;feature=mhsb" id="upload-btn" data-upsell="upload"><span class="yt-uix-button-content">Upload </span></a>
-  
   this.isNight = false;
   this.initalized = true;
 }

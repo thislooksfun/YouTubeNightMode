@@ -1,5 +1,9 @@
-window.nightMode = {};
- 
-nightMode.init = function() {
-  alert('Hello!')
-}
+javascript:(
+  function () {
+    var js = document.createElement('script');
+    js.setAttribute('type', 'text/javascript');
+    js.setAttribute('id', 'nightModeScript');
+    js.setAttribute('src', 'https://raw.githubusercontent.com/thislooksfun/YouTubeNightMode/master/NightMode.js');
+    document.head.appendChild(js);
+ }()
+);

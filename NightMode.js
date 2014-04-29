@@ -11,7 +11,7 @@ nightMode.init = function()
   this.pageElements[eleNum++] = {'element': document.getElementById('yt-masthead-container'), 'background': {'day': '#fff',    'night': '#000'}};
   this.pageElements[eleNum++] = {'element': document.getElementById('search-btn'),            'background': {'day': '#fff',    'night': '#000'}};
   this.pageElements[eleNum++] = {'element': document.getElementById('masthead-search-terms'), 'background': {'day': '#fff',    'night': '#000'}, 'text': {'day': '#666', 'night': '#999'}};
-  this.pageElements[eleNum++] = {'element': document.getElementById('appbar-guide-button'),   'background': {'day': '#f8f8f8', 'night': '#070707'}};
+  this.pageElements[eleNum++] = {'element': document.getElementById('appbar-guide-button'),   'background': {'day': '#f8f8f8', 'night': '#070707'} 'opacity': 0};
   
   
   var nightButton = document.createElement('button');
@@ -28,9 +28,15 @@ nightMode.init = function()
 nightMode.setNight = function()
 {
   for (var i = 0; i < this.pageElements.length; i++) {
-    this.pageElements[i].element.style.background = this.pageElements[i].background.night
-    if (this.pageElements[i].text) {
-      this.pageElements[i].element.style.color = this.pageElements[i].text.night
+    var elementData = this.pageElements[i];
+    
+    elementData.element.style.background = elementData.background.night;
+    
+    if (elementData.text) {
+      elementData.element.style.color = elementData.text.night;
+    }
+    if (elementData.opacity) {
+      elementData.element.style.opacity = elementData.opacity;
     }
   }
   alert('Night mode');
@@ -44,6 +50,9 @@ nightMode.setDay = function()
     this.pageElements[i].element.style.background = this.pageElements[i].background.day
     if (this.pageElements[i].text) {
       this.pageElements[i].element.style.color = this.pageElements[i].text.day
+    }
+    if (elementData.opacity) {
+      elementData.element.style.opacity = elementData.opacity;
     }
   }
   alert('Day mode');

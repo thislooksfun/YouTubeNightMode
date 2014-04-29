@@ -7,10 +7,10 @@ nightMode.init = function() {
   this.pageElements = [];
   
   //Format: [Element, [Day background color, Night background color], [Day text color, Night text color]];
-  this.pageElements[0] = [document.body, '#f1f1f1', '#0e0e0e'];
-  this.pageElements[1] = [document.getElementById('yt-masthead-container'), ['#fff', '#000']];
-  this.pageElements[2] = [document.getElementById('search-btn'), ['#fff', '#000']];
-  this.pageElements[3] = [document.getElementById('masthead-search-terms'), ['#fff', '#000'], ['#666' '#999']];
+  this.pageElements[0] = ['element': document.body,                                    'background': ['day': '#f1f1f1', 'night': '#0e0e0e']];
+  this.pageElements[1] = ['element': document.getElementById('yt-masthead-container'), 'background': ['day': '#fff',    'night': '#000']];
+  this.pageElements[2] = ['element': document.getElementById('search-btn'),            'background': ['day': '#fff',    'night': '#000']];
+  this.pageElements[3] = ['element': document.getElementById('masthead-search-terms'), 'background': ['day': '#fff',    'night': '#000'], 'text': ['day': '#666', 'night': '#999']];
   
   
   this.isNight = false;
@@ -18,9 +18,9 @@ nightMode.init = function() {
 
 nightMode.setNight = function() {
   for (var i = 0; i < this.pageElements.length; i++) {
-    this.pageElements[i][0].style.background = this.pageElements[i][1][1]
-    if (this.pageElements[i][2]) {
-      this.pageElements[i][0].style.color = this.pageElements[i][2][1]
+    this.pageElements[i].element.style.background = this.pageElements[i].background.night
+    if (this.pageElements[i].text) {
+      this.pageElements[i].element.style.color = this.pageElements[i].text.night
     }
   }
   alert('Night mode');
@@ -30,9 +30,9 @@ nightMode.setNight = function() {
 
 nightMode.setDay = function() {
   for (var i = 0; i < this.pageElements.length; i++) {
-    this.pageElements[i][0].style.background = this.pageElements[i][1][0]
-    if (this.pageElements[i][2]) {
-      this.pageElements[i][0].style.color = this.pageElements[i][2][0]
+    this.pageElements[i].element.style.background = this.pageElements[i].background.day
+    if (this.pageElements[i].text) {
+      this.pageElements[i].element.style.color = this.pageElements[i].text.day
     }
   }
   alert('Day mode');

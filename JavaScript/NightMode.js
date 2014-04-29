@@ -19,7 +19,7 @@ nightMode.init = function()
     this.nightButton.setAttribute('onClick', 'nightMode.toggle()');
     this.nightButton.setAttribute('class', 'yt-uix-button yt-uix-button-default yt-uix-button-size-default')
     this.nightButton.innerHTML = 'Night Mode';
-    document.getElementById('yt-masthead-content').appendChild(nightButton);
+    document.getElementById('yt-masthead-content').appendChild(this.nightButton);
   }
   
   this.isNight = false;

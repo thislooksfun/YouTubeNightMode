@@ -66,8 +66,4 @@ nightMode.toggle = function()
 
 
 //Startup Code
-if (!nightMode.initalized) {
-  nightMode.init();
-}
-
-nightMode.toggle();
+nightMode.init();

@@ -12,6 +12,12 @@ nightMode.init = function()
   this.pageElements[3] = {'element': document.getElementById('masthead-search-terms'), 'background': {'day': '#fff',    'night': '#000'}, 'text': {'day': '#666', 'night': '#999'}};
   
   
+  var nightButton = document.createElement('button');
+  nightButton.setAttribute('id', 'nightButton');
+  nightButton.setAttribute('onClick', 'nightMode.toggle()');
+  nightButton.setAttribute('value', 'Night Mode');
+  document.getElementById('yt-masthead-content').appendChild(nightButton);
+  
   this.isNight = false;
   this.initalized = true;
 }

@@ -44,6 +44,10 @@ nightMode.setDay = function()
 
 nightMode.toggle = function()
 {
+  if (!nightMode.initalized) {
+    nightMode.init();
+  }
+  
   if (this.isNight) {
     this.setDay();
   } else {

@@ -24,5 +24,3 @@ nightMode.toggleDay = function() {
 nightMode.init();
 
 nightMode.toggleNight();
-
-nightMode.toggleDay();

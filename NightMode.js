@@ -9,7 +9,7 @@ nightMode.init = function() {
   //Format: [Element, Day color, Night color]
   this.pageElements[0] = [document.body, '#f1f1f1', '#0e0e0e'];
   this.pageElements[1] = [document.getElementById('yt-masthead-container'), '#fff', '#000'];
-  this.pageElements[1] = [docuemtn.getElementById('yt-uix-button-content'), '#fff', '#000'];
+  this.pageElements[1] = [document.getElementById('yt-uix-button-content'), '#fff', '#000'];
 }
 
 nightMode.toggleNight = function() {

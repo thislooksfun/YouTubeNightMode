@@ -8,8 +8,8 @@ nightMode.init = function() {
   
   //Format: [Element, [Day background color, Night background color], [Day text color, Night text color]];
   this.pageElements[0] = [document.body, '#f1f1f1', '#0e0e0e'];
-  this.pageElements[1] = [document.getElementById('yt-masthead-container'), ['#fff', '#000'];
-  this.pageElements[2] = [document.getElementById('search-btn'), ['#fff', '#000'];
+  this.pageElements[1] = [document.getElementById('yt-masthead-container'), ['#fff', '#000']];
+  this.pageElements[2] = [document.getElementById('search-btn'), ['#fff', '#000']];
   this.pageElements[3] = [document.getElementById('masthead-search-terms'), ['#fff', '#000'], ['#666' '#999']];
   
   

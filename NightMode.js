@@ -13,7 +13,7 @@ nightMode.init = function()
   this.pageElements[eleNum++] = {'element': document.getElementById('masthead-search-terms'), 'background': {'day': '#fff',    'night': '#000'}, 'text': {'day': '#666', 'night': '#999'}};
   this.pageElements[eleNum++] = {'element': document.getElementById('appbar-guide-button'),   'background': {'day': '#f8f8f8', 'night': '#070707'}, 'opacity': 0};
   
-  if (!this.nightButton)) {
+  if (!this.nightButton) {
     this.nightButton = document.createElement('button');
     this.nightButton.setAttribute('id', 'nightButton');
     this.nightButton.setAttribute('onClick', 'nightMode.toggle()');

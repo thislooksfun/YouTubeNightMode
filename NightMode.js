@@ -10,22 +10,36 @@ nightMode.init = function() {
   this.pageElements[0] = [document.body, '#f1f1f1', '#0e0e0e'];
   this.pageElements[1] = [document.getElementById('yt-masthead-container'), '#fff', '#000'];
   this.pageElements[1] = [document.getElementById('yt-uix-button-content'), '#fff', '#000'];
+  
+  this.isNight = false;
 }
 
-nightMode.toggleNight = function() {
+nightMode.setNight = function() {
   for (var i = 0; i < this.pageElements.length; i++) {
     this.pageElements[i][0].style.background = this.pageElements[i][2]
   }
   alert('Night mode');
+  
+  this.isNight = true;
 }
 
-nightMode.toggleDay = function() {
+nightMode.setDay = function() {
   for (var i = 0; i < this.pageElements.length; i++) {
     this.pageElements[i][0].style.background = this.pageElements[i][1]
   }
   alert('Day mode');
+  
+  this.isNight = false;
+}
+
+nightMode.toggle = function() {
+  if (this.isNight) {
+    this.setDay();
+  } else {
+    this.setNight();
+  }
 }
 
 nightMode.init();
 
-nightMode.toggleNight();
+nightMode.toggle();

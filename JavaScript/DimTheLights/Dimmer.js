@@ -37,6 +37,8 @@ dimmer.checkSize = function()
     this.oldClass = match.exec(player.className)[0];
     alert(this.oldClass);
   }
+  
+  window.setTimeout(this.checkSize, 20);
 }
 
 function hasClass(element, className) {

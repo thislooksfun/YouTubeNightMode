@@ -19,13 +19,16 @@ dimmer.init = function()
     
     this.div1 = document.createElement('div');
     this.div1.setAttribute('id', 'dimmerDiv1');
-    document.getElementById('page-container').appendChild(this.div1);
+    document.body.appendChild(this.div1);
+    
     this.div2 = document.createElement('div');
     this.div2.setAttribute('id', 'dimmerDiv2');
     document.body.appendChild(this.div2);
+    
     this.div3 = document.createElement('div');
     this.div3.setAttribute('id', 'dimmerDiv3');
     document.body.appendChild(this.div3);
+    
     this.div4 = document.createElement('div');
     this.div4.setAttribute('id', 'dimmerDiv4');
     document.body.appendChild(this.div4);
@@ -58,8 +61,12 @@ dimmer.positionDivs = function()
   this.div1.style.height = "200px";
   this.div1.style.width = "200px";
   
-  //this.div2.style.width = ??;
-  //this.div2.style.height = ??;
+  this.div2.style.background = "#081";
+  this.div2.style.position = "absolute";
+  this.div2.style.left = "0";
+  this.div2.style.top = "200";
+  this.div2.style.height = "200px";
+  this.div2.style.width = "200px";
   
   //this.div3.style.xPos = ??;
   //this.div3.style.width = ??;

@@ -20,7 +20,7 @@ dimmer.init = function()
       this.dimmerButton.setAttribute('id', 'dimmer');
       this.dimmerButton.setAttribute('onClick', 'dimmer.toggle()');
       this.dimmerButton.setAttribute('class', 'yt-uix-button yt-uix-button-default yt-uix-button-size-default')
-      this.dimmerButton.innerHTML = 'Night Mode';
+      this.dimmerButton.innerHTML = 'Dim';
       document.getElementById('yt-masthead-content').appendChild(this.dimmerButton);
     } else {
       this.dimmerButton = document.getElementById('dimmer');

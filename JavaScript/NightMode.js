@@ -63,7 +63,9 @@ nightMode.setDay = function()
   for (var i = 0; i < this.pageElements.length; i++) {
     var elementData = this.pageElements[i];
     
-    elementData.element.style.background = elementData.background.day
+    if (elementData.background) {
+      elementData.element.style.background = elementData.background.day
+    }
     if (elementData.text) {
       elementData.element.style.color = elementData.text.day
     }

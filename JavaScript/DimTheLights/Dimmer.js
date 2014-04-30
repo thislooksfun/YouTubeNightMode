@@ -47,7 +47,10 @@ dimmer.init = function()
 
 dimmer.positionDivs = function()
 {
-  //this.div1.style.height = ??;
+  this.div1.style.background = "#000";
+  this.div1.style.position = "relative";
+  this.div1.style.height = "200px";
+  this.div1.style.width = "200px";
   
   //this.div2.style.width = ??;
   //this.div2.style.height = ??;

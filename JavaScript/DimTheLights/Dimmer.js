@@ -17,10 +17,16 @@ dimmer.init = function()
     this.dimmerButton.innerHTML = 'Dim';
     document.getElementById('yt-masthead-content').appendChild(this.dimmerButton);
     
-    //this.div1 = document.createElement('div');
-    //this.div2 = document.createElement('div');
-    //this.div3 = document.createElement('div');
-    //this.div4 = document.createElement('div');
+    this.div1 = document.createElement('div');
+    document.body.appendChild(this.div1);
+    this.div2 = document.createElement('div');
+    document.body.appendChild(this.div2);
+    this.div3 = document.createElement('div');
+    document.body.appendChild(this.div3);
+    this.div4 = document.createElement('div');
+    document.body.appendChild(this.div4);
+    
+    this.positionDivs();
     
     var rect = document.getElementById('player').getBoundingClientRect();
     alert(rect.top + ', ' + rect.right + ', ' + rect.bottom + ', ' + rect.left);
@@ -39,12 +45,8 @@ dimmer.init = function()
   }
 }
 
-dimmer.onWindowResize = function()
+dimmer.positionDivs = function()
 {
-  if (this.oldResizeEvent != null) {
-    this.oldResizeEvent();
-  }
-  
   //this.div1.style.height = ??;
   
   //this.div2.style.width = ??;
@@ -57,6 +59,13 @@ dimmer.onWindowResize = function()
   //this.div4.style.height = ??;
 }
 
+dimmer.onWindowResize = function()
+{
+  if (this.oldResizeEvent != null) {
+    this.oldResizeEvent();
+  }
+}
+
 dimmer.checkSize = function()
 {
   var player = document.getElementById('player');
@@ -65,16 +74,7 @@ dimmer.checkSize = function()
     var match = /(watch-small|watch-medium|watch-medium-540|watch-large)/;
     this.oldClass = match.exec(player.className)[0];
     
-    //this.div1.style.height = ??;
-    
-    //this.div2.style.width = ??;
-    //this.div2.style.height = ??;
-    
-    //this.div3.style.xPos = ??;
-    //this.div3.style.width = ??;
-    //this.div3.style.height = ??;
-    
-    //this.div4.style.height = ??;
+    this.positionDivs();
   }
 }
 

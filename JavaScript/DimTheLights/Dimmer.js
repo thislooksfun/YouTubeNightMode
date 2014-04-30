@@ -4,16 +4,11 @@ window.dimmer = {};
 dimmer.init = function()
 {
   if (!this.initalized) {
-    this.pageElements = [];
-    var eleNum = 0; //Element number
     
-    //Format: {'element': Element, 'background': {'day': Day background color, 'night': Night background color], 'text': {'day': Day text color, 'night': Night text color}};
-    this.pageElements[eleNum++] = {'element': document.body,                                    'background': {'day': '#f1f1f1', 'night': '#0e0e0e'}};
-    this.pageElements[eleNum++] = {'element': document.getElementById('yt-masthead-container'), 'background': {'day': '#fff',    'night': '#000'}};
-    this.pageElements[eleNum++] = {'element': document.getElementById('search-btn'),            'background': {'day': '#fff',    'night': '#000'}};
-    this.pageElements[eleNum++] = {'element': document.getElementById('masthead-search-terms'), 'background': {'day': '#fff',    'night': '#000'}};
-    this.pageElements[eleNum++] = {'element': document.getElementById('appbar-guide-button'),   'background': {'day': '', 'night': '#070707'}};
-    this.pageElements[eleNum++] = {'element': document.getElementById('masthead-search-term'),  'text': {'day': '#000', 'night': '#fff'}};
+    if (!this.isVideo()) {
+      alert("This isn't a video! Please open a video and try again.");
+      return;
+    }
     
     if (document.getElementById('dimmer') == null) {
       this.dimmerButton = document.createElement('button');
@@ -28,6 +23,32 @@ dimmer.init = function()
     
     this.isNight = false;
     this.initalized = true;
+    
+    this.checkSize();
+  }
+}
+
+dimmer.checkSize = function()
+{
+  var player = document.getElementById('player', this.oldClass);
+  if (!hasClass(player))
+  {
+    var match = /(watch-\S*)/;
+    this.oldClass = match.exec(player.className);
+    alert(this.oldClass);
+  }
+}
+
+function hasClass(element, className) {
+    return element.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(element.className);
+}
+
+dimmer.isvideo = function()
+{
+  if (document.getElementById('player')) {
+    return true;
+  } else {
+    return false;
   }
 }
 

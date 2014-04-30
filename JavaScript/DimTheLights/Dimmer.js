@@ -15,21 +15,15 @@ dimmer.init = function()
     this.pageElements[eleNum++] = {'element': document.getElementById('appbar-guide-button'),   'background': {'day': '', 'night': '#070707'}};
     this.pageElements[eleNum++] = {'element': document.getElementById('masthead-search-term'),  'text': {'day': '#000', 'night': '#fff'}};
     
-    if (document.getElementById('nightButton') == null) {
-      this.nightButton = document.createElement('button');
-      this.nightButton.setAttribute('id', 'nightButton');
-      this.nightButton.setAttribute('onClick', 'dimmer.toggle()');
-      this.nightButton.setAttribute('class', 'yt-uix-button yt-uix-button-default yt-uix-button-size-default')
-      this.nightButton.innerHTML = 'Night Mode';
-      document.getElementById('yt-masthead-content').appendChild(this.nightButton);
-      
-      var cssNight = document.createElement('link');
-      cssNight.setAttribute('type', 'text/css');
-      cssNight.setAttribute('rel', 'stylesheet');
-      cssNight.setAttribute('href', 'https://raw.githubusercontent.com/thislooksfun/YouTubeNightMode/master/css/mainNight.css')
-      document.getElementById('yt-masthead-content').appendChild(cssNight);
+    if (document.getElementById('dimmer') == null) {
+      this.dimmerButton = document.createElement('button');
+      this.dimmerButton.setAttribute('id', 'dimmer');
+      this.dimmerButton.setAttribute('onClick', 'dimmer.toggle()');
+      this.dimmerButton.setAttribute('class', 'yt-uix-button yt-uix-button-default yt-uix-button-size-default')
+      this.dimmerButton.innerHTML = 'Night Mode';
+      document.getElementById('yt-masthead-content').appendChild(this.dimmerButton);
     } else {
-      this.nightButton = document.getElementById('nightButton');
+      this.dimmerButton = document.getElementById('dimmer');
     }
     
     this.isNight = false;
@@ -53,7 +47,7 @@ dimmer.setNight = function()
     }
   }
   
-  this.nightButton.innerHTML = "Day mode"
+  this.dimmerButton.innerHTML = "Brighten"
   
   this.isNight = true;
 }
@@ -74,7 +68,7 @@ dimmer.setDay = function()
     }
   }
   
-  this.nightButton.innerHTML = "Night mode"
+  this.dimmerButton.innerHTML = "Dim"
   
   this.isNight = false;
 }

@@ -33,7 +33,7 @@ dimmer.checkSize = function()
   var player = document.getElementById('player', this.oldClass);
   if (!hasClass(player))
   {
-    var match = /(watch-\S*)/;
+    var match = /(watch-small|watch-medium|watch-medium-540|watch-large)/;
     this.oldClass = match.exec(player.className)[0];
     alert(this.oldClass);
   }

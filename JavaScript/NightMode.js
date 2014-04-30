@@ -27,6 +27,8 @@ nightMode.init = function()
       cssNight.setAttribute('rel', 'stylesheet');
       cssNight.setAttribute('href', 'https://raw.githubusercontent.com/thislooksfun/YouTubeNightMode/master/css/mainNight.css')
       document.getElementById('yt-masthead-content').appendChild(cssNight);
+    } else {
+      this.nightButton = document.getElementById('nightButton');
     }
     
     this.isNight = false;

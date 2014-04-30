@@ -56,6 +56,7 @@ dimmer.positionDivs = function()
 {
   this.div1.style.background = "#000";
   this.div1.style.position = "absolute";
+  this.div1.style.zindex = "1000000";
   this.div1.style.left = "0px";
   this.div1.style.top = "0px";
   this.div1.style.height = "200px";
@@ -63,6 +64,7 @@ dimmer.positionDivs = function()
   
   this.div2.style.background = "#081";
   this.div2.style.position = "absolute";
+  this.div2.style.zindex = "1000000";
   this.div2.style.left = "0px";
   this.div2.style.top = "200px";
   this.div2.style.height = "200px";
@@ -70,6 +72,7 @@ dimmer.positionDivs = function()
   
   this.div3.style.background = "#073";
   this.div3.style.position = "absolute";
+  this.div3.style.zindex = "1000000";
   this.div3.style.left = "200px";
   this.div3.style.top = "0px";
   this.div3.style.height = "200px";
@@ -77,6 +80,7 @@ dimmer.positionDivs = function()
   
   this.div4.style.background = "#625";
   this.div4.style.position = "absolute";
+  this.div4.style.zindex = "1000000";
   this.div4.style.left = "200px";
   this.div4.style.top = "200px";
   this.div4.style.height = "200px";

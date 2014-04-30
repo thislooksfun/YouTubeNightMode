@@ -34,8 +34,9 @@ dimmer.checkSize = function()
   if (!hasClass(player))
   {
     var match = /(watch-small|watch-medium|watch-medium-540|watch-large)/;
-    this.oldClass = match.exec(player.className)[0];
-    alert("Change! "+this.oldClass);
+    alert("Old: "+dimmer.oldClass);
+    dimmer.oldClass = match.exec(player.className)[0];
+    alert("Change! "+dimmer.oldClass);
   } else {
     alert("No change... "+player.className);
   }

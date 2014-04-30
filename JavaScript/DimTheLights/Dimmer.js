@@ -24,7 +24,7 @@ dimmer.init = function()
       //this.div4 = document.createElement('div');
       
       var rect = document.getElementById('player').getBoundingClientRect();
-      alert(rect.top + ',' + rect.right + ',' + rect.bottom + ',' + rect.left);
+      alert(rect.top + ', ' + rect.right + ', ' + rect.bottom + ', ' + rect.left);
     } else {
       this.dimmerButton = document.getElementById('dimmer');
     }
@@ -56,6 +56,7 @@ dimmer.checkSize = function()
     
     //this.div4.style.height = ??;
   }
+}
 
 function hasClass(element, className) {
     return element.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(element.className);

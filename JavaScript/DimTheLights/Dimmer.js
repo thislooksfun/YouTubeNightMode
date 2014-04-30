@@ -56,7 +56,7 @@ dimmer.positionDivs = function()
 {
   this.div1.style.background = "#000";
   this.div1.style.position = "absolute";
-  this.div1.style.zindex = "1000000";
+  this.div1.style.zIndex = "1000000";
   this.div1.style.left = "0px";
   this.div1.style.top = "0px";
   this.div1.style.height = "200px";
@@ -64,7 +64,7 @@ dimmer.positionDivs = function()
   
   this.div2.style.background = "#081";
   this.div2.style.position = "absolute";
-  this.div2.style.zindex = "1000000";
+  this.div2.style.zIndex = "1000000";
   this.div2.style.left = "0px";
   this.div2.style.top = "200px";
   this.div2.style.height = "200px";
@@ -72,7 +72,7 @@ dimmer.positionDivs = function()
   
   this.div3.style.background = "#073";
   this.div3.style.position = "absolute";
-  this.div3.style.zindex = "1000000";
+  this.div3.style.zIndex = "1000000";
   this.div3.style.left = "200px";
   this.div3.style.top = "0px";
   this.div3.style.height = "200px";
@@ -80,7 +80,7 @@ dimmer.positionDivs = function()
   
   this.div4.style.background = "#625";
   this.div4.style.position = "absolute";
-  this.div4.style.zindex = "1000000";
+  this.div4.style.zIndex = "1000000";
   this.div4.style.left = "200px";
   this.div4.style.top = "200px";
   this.div4.style.height = "200px";
@@ -128,36 +128,62 @@ dimmer.setNight = function()
     this.div2.style.opacity = this.opacity;
     this.div3.style.opacity = this.opacity;
     this.div4.style.opacity = this.opacity;
-    
-    this.nightInterval = window.setInterval(dimmer.setNight, 100);
+  } else {
+    window.clearInterval(this.nightInterval)
+    this.nightInterval = null;
+    this.isNight = true;
   }
 }
 
 dimmer.setDay = function()
 {
-  for (var i = 0; i < this.pageElements.length; i++) {
-    var elementData = this.pageElements[i];
-    
-    if (elementData.background) {
-      elementData.element.style.background = elementData.background.day
-    }
-    if (elementData.text) {
-      elementData.element.style.color = elementData.text.day
-    }
-    if (elementData.opacity) {
-      elementData.element.style.opacity = elementData.opacity;
-    }
+  if (this.opacity > 0)
+  {
+    this.opacity = this.opacity - 1;
+    this.div1.style.opacity = this.opacity;
+    this.div2.style.opacity = this.opacity;
+    this.div3.style.opacity = this.opacity;
+    this.div4.style.opacity = this.opacity;
+  } else {
+    window.clearInterval(this.dayInterval)
+    this.dayInterval = null;
+    this.isNight = false;
   }
-  
-  this.dimmerButton.innerHTML = "Dim"
-  
-  this.isNight = false;
 }
 
 dimmer.toggle = function()
 {
   alert('This hasn\'t been implemented yet!');
   return;
+  
+  if (this.isNight)
+  {
+    if (this.nightInterval != null) {
+      window.clearInterval(this.nightInterval)
+      this.nightInterval = null;
+    }
+    
+    if (this.dayInterval == null) {
+      this.dayInterval = window.setInterval(dimmer.setDay, 100);
+      dimmer.setDay();
+    }
+    
+    this.dimmer.innerHTML = "Brighten"
+  }
+  else
+  {
+    if (this.dayInterval != null) {
+      window.clearInterval(this.dayInterval)
+      this.dayInterval = null;
+    }
+    
+    if (this.nightInterval == null) {
+      this.nightInterval = window.setInterval(dimmer.setNight, 100);
+      dimmer.setNight();
+    }
+    
+    this.dimmer.innerHTML = "Dim"
+  }
 }
 
 

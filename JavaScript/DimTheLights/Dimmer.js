@@ -34,7 +34,7 @@ dimmer.checkSize = function()
   if (!hasClass(player))
   {
     var match = /(watch-\S*)/;
-    this.oldClass = match.exec(player.className);
+    this.oldClass = match.exec(player.className)[0];
     alert(this.oldClass);
   }
 }

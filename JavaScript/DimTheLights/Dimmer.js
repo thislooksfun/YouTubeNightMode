@@ -17,6 +17,11 @@ dimmer.init = function()
       this.dimmerButton.setAttribute('class', 'yt-uix-button yt-uix-button-default yt-uix-button-size-default')
       this.dimmerButton.innerHTML = 'Dim';
       document.getElementById('yt-masthead-content').appendChild(this.dimmerButton);
+      
+      //this.div1 = document.createElement('div');
+      //this.div2 = document.createElement('div');
+      //this.div3 = document.createElement('div');
+      //this.div4 = document.createElement('div');
     } else {
       this.dimmerButton = document.getElementById('dimmer');
     }
@@ -24,7 +29,7 @@ dimmer.init = function()
     this.isNight = false;
     this.initalized = true;
     
-    window.setInterval(this.checkSize, 5000);
+    window.setInterval(this.checkSize, 40);
   }
 }
 
@@ -34,13 +39,19 @@ dimmer.checkSize = function()
   if (!hasClass(player, this.oldClass))
   {
     var match = /(watch-small|watch-medium|watch-medium-540|watch-large)/;
-    alert("Old: "+this.oldClass);
     this.oldClass = match.exec(player.className)[0];
-    alert("Change! "+this.oldClass);
-  } else {
-    alert("No change... "+player.className);
+    
+    //this.div1.style.height = ??;
+    
+    //this.div2.style.width = ??;
+    //this.div2.style.height = ??;
+    
+    //this.div3.style.xPos = ??;
+    //this.div3.style.width = ??;
+    //this.div3.style.height = ??;
+    
+    //this.div4.style.height = ??;
   }
-}
 
 function hasClass(element, className) {
     return element.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(element.className);

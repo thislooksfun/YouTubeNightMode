@@ -3,38 +3,58 @@ window.dimmer = {};
 //Functions
 dimmer.init = function()
 {
-  if (!this.initalized) {
+  if (document.getElementById('dimmer') == null) {
     
     if (!this.isVideo()) {
       alert("This isn't a video! Please open a video and try again.");
       return;
     }
     
-    if (document.getElementById('dimmer') == null) {
-      this.dimmerButton = document.createElement('button');
-      this.dimmerButton.setAttribute('id', 'dimmer');
-      this.dimmerButton.setAttribute('onClick', 'dimmer.toggle()');
-      this.dimmerButton.setAttribute('class', 'yt-uix-button yt-uix-button-default yt-uix-button-size-default')
-      this.dimmerButton.innerHTML = 'Dim';
-      document.getElementById('yt-masthead-content').appendChild(this.dimmerButton);
-      
-      //this.div1 = document.createElement('div');
-      //this.div2 = document.createElement('div');
-      //this.div3 = document.createElement('div');
-      //this.div4 = document.createElement('div');
-      
-      var rect = document.getElementById('player').getBoundingClientRect();
-      alert(rect.top + ', ' + rect.right + ', ' + rect.bottom + ', ' + rect.left);
-    } else {
-      this.dimmerButton = document.getElementById('dimmer');
-    }
+    this.dimmerButton = document.createElement('button');
+    this.dimmerButton.setAttribute('id', 'dimmer');
+    this.dimmerButton.setAttribute('onClick', 'dimmer.toggle()');
+    this.dimmerButton.setAttribute('class', 'yt-uix-button yt-uix-button-default yt-uix-button-size-default')
+    this.dimmerButton.innerHTML = 'Dim';
+    document.getElementById('yt-masthead-content').appendChild(this.dimmerButton);
+    
+    //this.div1 = document.createElement('div');
+    //this.div2 = document.createElement('div');
+    //this.div3 = document.createElement('div');
+    //this.div4 = document.createElement('div');
+    
+    var rect = document.getElementById('player').getBoundingClientRect();
+    alert(rect.top + ', ' + rect.right + ', ' + rect.bottom + ', ' + rect.left);
     
     this.isNight = false;
     this.initalized = true;
     
     this.checkSize();
     window.setInterval(this.checkSize, 40);
+    if (window.onresize != null) {
+      this.oldResizeEvent = window.onresize;
+      window.onresize = dimmer.onWindowResize;
+    }
+  } else {
+    this.dimmerButton = document.getElementById('dimmer');
   }
+}
+
+dimmer.onWindowResize = function()
+{
+  if (this.oldResizeEvent != null) {
+    this.oldResizeEvent();
+  }
+  
+  //this.div1.style.height = ??;
+  
+  //this.div2.style.width = ??;
+  //this.div2.style.height = ??;
+  
+  //this.div3.style.xPos = ??;
+  //this.div3.style.width = ??;
+  //this.div3.style.height = ??;
+  
+  //this.div4.style.height = ??;
 }
 
 dimmer.checkSize = function()

@@ -22,12 +22,6 @@ nightMode.init = function()
       this.nightButton.setAttribute('class', 'yt-uix-button yt-uix-button-default yt-uix-button-size-default')
       this.nightButton.innerHTML = 'Night Mode';
       document.getElementById('yt-masthead-content').appendChild(this.nightButton);
-      
-      var cssNight = document.createElement('link');
-      cssNight.setAttribute('type', 'text/css');
-      cssNight.setAttribute('rel', 'stylesheet');
-      cssNight.setAttribute('href', 'https://raw.githubusercontent.com/thislooksfun/YouTubeNightMode/master/css/mainNight.css')
-      document.getElementById('yt-masthead-content').appendChild(cssNight);
     } else {
       this.nightButton = document.getElementById('nightButton');
     }

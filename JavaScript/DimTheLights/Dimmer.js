@@ -159,6 +159,9 @@ dimmer.setDay = function()
 
 dimmer.toggle = function()
 {
+  alert('This hasn\'t been implemented yet!');
+  return;
+  
   if (!dimmer.initalized) {
     dimmer.init();
   }

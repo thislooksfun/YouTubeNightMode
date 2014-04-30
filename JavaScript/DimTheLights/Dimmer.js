@@ -62,6 +62,7 @@ dimmer.positionDivs = function()
   this.div1.style.height = "200px";
   this.div1.style.width = "200px";
   this.div1.style.pointerEvents = "none";
+  this.div1.style.opacity = "50";
   
   this.div2.style.background = "#081";
   this.div2.style.position = "absolute";
@@ -71,6 +72,7 @@ dimmer.positionDivs = function()
   this.div2.style.height = "200px";
   this.div2.style.width = "200px";
   this.div2.style.pointerEvents = "none";
+  this.div2.style.opacity = "50%";
   
   this.div3.style.background = "#073";
   this.div3.style.position = "absolute";

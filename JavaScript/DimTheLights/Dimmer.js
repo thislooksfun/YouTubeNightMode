@@ -43,7 +43,7 @@ function hasClass(element, className) {
     return element.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(element.className);
 }
 
-dimmer.isvideo = function()
+dimmer.isVideo = function()
 {
   if (document.getElementById('player')) {
     return true;

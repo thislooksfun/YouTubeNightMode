@@ -22,6 +22,9 @@ dimmer.init = function()
       //this.div2 = document.createElement('div');
       //this.div3 = document.createElement('div');
       //this.div4 = document.createElement('div');
+      
+      var rect = document.getElementById('player').getBoundingClientRect();
+      alert(rect.top + ',' + rect.right + ',' + rect.bottom + ',' + rect.left);
     } else {
       this.dimmerButton = document.getElementById('dimmer');
     }
@@ -29,6 +32,7 @@ dimmer.init = function()
     this.isNight = false;
     this.initalized = true;
     
+    this.checkSize();
     window.setInterval(this.checkSize, 40);
   }
 }

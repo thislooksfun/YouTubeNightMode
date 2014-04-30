@@ -121,23 +121,16 @@ dimmer.isVideo = function()
 
 dimmer.setNight = function()
 {
-  for (var i = 0; i < this.pageElements.length; i++) {
-    var elementData = this.pageElements[i];
+  if (this.opacity < 80)
+  {
+    this.opacity = this.opacity + 1;
+    this.div1.style.opacity = this.opacity;
+    this.div2.style.opacity = this.opacity;
+    this.div3.style.opacity = this.opacity;
+    this.div4.style.opacity = this.opacity;
     
-    if (elementData.background) {
-      elementData.element.style.background = elementData.background.night;
-    }
-    if (elementData.text) {
-      elementData.element.style.color = elementData.text.night;
-    }
-    if (elementData.opacity) {
-      elementData.element.style.opacity = elementData.opacity;
-    }
+    this.nightInterval = window.setInterval(dimmer.setNight, 100);
   }
-  
-  this.dimmerButton.innerHTML = "Brighten"
-  
-  this.isNight = true;
 }
 
 dimmer.setDay = function()
@@ -165,20 +158,7 @@ dimmer.toggle = function()
 {
   alert('This hasn\'t been implemented yet!');
   return;
-  
-  if (!dimmer.initalized) {
-    dimmer.init();
-  }
-  
-  if (this.isNight) {
-    this.setDay();
-  } else {
-    this.setNight();
-  }
 }
 
 
-//Startup Code
-if (!dimmer.initalized) {
-  dimmer.init();
-}
+dimmer.init();

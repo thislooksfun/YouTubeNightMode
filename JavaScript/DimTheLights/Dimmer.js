@@ -18,12 +18,16 @@ dimmer.init = function()
     document.getElementById('yt-masthead-content').appendChild(this.dimmerButton);
     
     this.div1 = document.createElement('div');
-    document.body.appendChild(this.div1);
+    this.div1.setAttribute('id', 'dimmerDiv1');
+    document.getElementById('page-container').appendChild(this.div1);
     this.div2 = document.createElement('div');
+    this.div2.setAttribute('id', 'dimmerDiv2');
     document.body.appendChild(this.div2);
     this.div3 = document.createElement('div');
+    this.div3.setAttribute('id', 'dimmerDiv3');
     document.body.appendChild(this.div3);
     this.div4 = document.createElement('div');
+    this.div4.setAttribute('id', 'dimmerDiv4');
     document.body.appendChild(this.div4);
     
     this.positionDivs();

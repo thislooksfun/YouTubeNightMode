@@ -19,7 +19,7 @@ dimmer.init = function()
     
     this.div1 = document.createElement('div');
     this.div1.setAttribute('id', 'dimmerDiv1');
-    document.getElementById('body-container').appendChild(this.div1);
+    document.body.appendChild(this.div1);
     
     this.div2 = document.createElement('div');
     this.div2.setAttribute('id', 'dimmerDiv2');

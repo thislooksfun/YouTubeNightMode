@@ -77,7 +77,7 @@ dimmer.checkSize = function()
     var match = /(watch-small|watch-medium|watch-medium-540|watch-large)/;
     this.oldClass = match.exec(player.className)[0];
     
-    this.positionDivs();
+    dimmer.positionDivs();
   }
 }
 

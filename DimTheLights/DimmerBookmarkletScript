@@ -1,5 +1,10 @@
 javascript:(
   function () {
+    var jq = document.createElement('script');
+    jq.setAttribute('type', 'text/javascript');
+    jq.setAttribute('src', 'http://code.jquery.com/jquery-latest.min.js');
+    document.head.appendChild(jq);
+    
     var js = document.createElement('script');
     js.setAttribute('type', 'text/javascript');
     js.setAttribute('id', 'nightModeScript');

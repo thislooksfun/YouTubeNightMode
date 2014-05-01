@@ -213,9 +213,9 @@ function getDocWidth() {
     );
 }
 
-var elementPosition = $('#dimmerDiv4').offset();
+dimmer.elementPosition = $('#dimmerDiv4').offset();
 $(window).scroll(function() {
-        if($(window).scrollTop() > elementPosition.top){
+        if($(window).scrollTop() > dimmer.elementPosition.top){
             $('#dimmerDiv4').css({'position':'fixed','top':'0'});
             $('.bg1 h2').css({'margin-top':'232px'});
         } else {

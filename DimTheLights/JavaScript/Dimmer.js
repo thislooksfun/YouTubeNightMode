@@ -45,9 +45,6 @@ dimmer.init = function()
     
     this.positionDivs();
     
-    var rect = document.getElementById('player').getBoundingClientRect();
-    alert(rect.top + ', ' + rect.right + ', ' + rect.bottom + ', ' + rect.left);
-    
     this.isNight = false;
     this.initalized = true;
     
@@ -64,25 +61,28 @@ dimmer.init = function()
 
 dimmer.positionDivs = function()
 {
+  var rect = document.getElementById('player').getBoundingClientRect();
+  alert(rect.top + ', ' + rect.right + ', ' + rect.bottom + ', ' + rect.left);
+  
   this.div1.style.left = "0px";
   this.div1.style.top = "0px";
-  this.div1.style.height = "200px";
-  this.div1.style.width = "200px";
+  this.div1.style.height = rect.top + "px";
+  this.div1.style.width = window.availWidth + "px";
   
   this.div2.style.left = "0px";
-  this.div2.style.top = "200px";
-  this.div2.style.height = "200px";
-  this.div2.style.width = "200px";
+  this.div2.style.top = rect.top + "px";
+  this.div2.style.height = (rect.bottom - rect.top) + "px";
+  this.div2.style.width = rect.left + "px";
 
-  this.div3.style.left = "200px";
-  this.div3.style.top = "0px";
-  this.div3.style.height = "200px";
-  this.div3.style.width = "200px";
+  this.div3.style.left = rect.right + "px";
+  this.div3.style.top = rect.top + "px";
+  this.div3.style.height = (rect.bottom - rect.top) + "px";
+  this.div3.style.width = (screen.availWidth - rect.right) + "px";
   
-  this.div4.style.left = "200px";
-  this.div4.style.top = "200px";
-  this.div4.style.height = "200px";
-  this.div4.style.width = "200px";
+  this.div4.style.left = "0px";
+  this.div4.style.top = rect.bottom + "px";
+  this.div4.style.height = (window.availHeight - rect.bottom) + "px";
+  this.div4.style.width = window.availWidth + "px";
 }
 
 dimmer.onWindowResize = function()

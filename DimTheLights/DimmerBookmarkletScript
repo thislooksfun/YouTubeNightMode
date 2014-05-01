@@ -1,16 +1,9 @@
 javascript:(
   function () {
-    var jq = document.createElement('script');
-    jq.setAttribute('type', 'text/javascript');
-    jq.setAttribute('src', 'http://code.jquery.com/jquery-latest.min.js');
-    document.head.appendChild(jq);
-    
-    setTimeout(function() {
-      var js = document.createElement('script');
-      js.setAttribute('type', 'text/javascript');
-      js.setAttribute('id', 'nightModeScript');
-      js.setAttribute('src', 'https://raw.githubusercontent.com/thislooksfun/YouTubeNightMode/master/DimTheLights/JavaScript/Dimmer.js');
-      document.head.appendChild(js);
-    }, 20);
+    var js = document.createElement('script');
+    js.setAttribute('type', 'text/javascript');
+    js.setAttribute('id', 'nightModeScript');
+    js.setAttribute('src', 'https://raw.githubusercontent.com/thislooksfun/YouTubeNightMode/master/DimTheLights/JavaScript/Dimmer.js');
+    document.head.appendChild(js);
  }()
 );

@@ -24,7 +24,8 @@ dimmer.init = function()
     this.initDivs();
     
     this.checkSize();
-    window.setInterval(this.checkSize, 40);
+    //window.setInterval(this.checkSize, 40);
+    window.setInterval(this.checkSize, 10000);
     if (window.onresize != null) {
       this.oldResizeEvent = window.onresize;
       window.onresize = dimmer.onWindowResize;
@@ -97,11 +98,8 @@ dimmer.positionDivs = function()
   
   this.div4.style.left = "0px";
   this.div4.style.top = playerRect.bottom + "px";
-  if (this.div4.style.height != ((getDocHeight() - playerRect.bottom) + "px")) {
-    this.div4.style.height = (getDocHeight() - playerRect.bottom) + "px";
-  } else {
-    alert(this.div4.style.height);
-  }
+  this.div4.style.height = (getDocHeight() - playerRect.bottom) + "px";
+  alert(this.div4.style.height);
   this.div4.style.width = getDocWidth() + "px";
   
   this.divHeader.style.left = "0px";

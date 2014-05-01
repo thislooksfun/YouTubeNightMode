@@ -45,7 +45,7 @@ dimmer.initDivs = function()
   this.divContainer = document.createElement('div');
   this.divContainer.setAttribute('id', 'dimmerDivContainer');
   this.divContainer.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; opacity: 0.5; position: absolute');
-  document.body.appendChild(this.div1);
+  document.body.appendChild(this.divContainer);
   
   this.div1 = document.createElement('div');
   this.div1.setAttribute('id', 'dimmerDiv1');

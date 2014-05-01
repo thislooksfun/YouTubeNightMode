@@ -19,30 +19,7 @@ dimmer.init = function()
     this.dimmerButton.innerHTML = 'Dim';
     container.insertBefore(this.dimmerButton, container.firstChild);
     
-    this.div1 = document.createElement('div');
-    this.div1.setAttribute('id', 'dimmerDiv1');
-    this.div1.setAttribute('class', 'tlf-dimmer-overlay');
-    document.body.appendChild(this.div1);
-    
-    this.div2 = document.createElement('div');
-    this.div2.setAttribute('id', 'dimmerDiv2');
-    this.div2.setAttribute('class', 'tlf-dimmer-overlay');
-    document.body.appendChild(this.div2);
-    
-    this.div3 = document.createElement('div');
-    this.div3.setAttribute('id', 'dimmerDiv3');
-    this.div3.setAttribute('class', 'tlf-dimmer-overlay');
-    document.body.appendChild(this.div3);
-    
-    this.div4 = document.createElement('div');
-    this.div4.setAttribute('id', 'dimmerDiv4');
-    this.div4.setAttribute('class', 'tlf-dimmer-overlay');
-    document.body.appendChild(this.div4);
-    
-    this.positionDivs();
-    
     this.isNight = false;
-    this.initalized = true;
     
     this.checkSize();
     window.setInterval(this.checkSize, 40);
@@ -53,32 +30,36 @@ dimmer.init = function()
   } else {
     this.dimmerButton = document.getElementById('dimmer');
   }
-  
-  setTimeout(this.refreshElements, 20)
 }
 
-dimmer.refreshElements = function()
+dimmer.initDivs = function()
 {
-  setTimeout(this.hideElements, 20);
-  setTimeout(this.showElements, 40);
-}
-dimmer.hideElements = function()
-{
-  this.dimmerButton.style.display = "none";
+  this.div1 = document.createElement('div');
+  this.div1.setAttribute('id', 'dimmerDiv1');
+  this.div1.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; opacity: 0.5; position: absolute');
+  document.body.appendChild(this.div1);
   
-  this.div1.style.display = "none";
-  this.div2.style.display = "none";
-  this.div3.style.display = "none";
-  this.div4.style.display = "none";
-}
-dimmer.showElements = function()
-{
-  this.dimmerButton.style.display = "";
+  this.div2 = document.createElement('div');
+  this.div2.setAttribute('id', 'dimmerDiv2');
+  this.div2.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; opacity: 0.5; position: absolute');
+  document.body.appendChild(this.div2);
   
-  this.div1.style.display = "";
-  this.div2.style.display = "";
-  this.div3.style.display = "";
-  this.div4.style.display = "";
+  this.div3 = document.createElement('div');
+  this.div3.setAttribute('id', 'dimmerDiv3');
+  this.div3.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; opacity: 0.5; position: absolute');
+  document.body.appendChild(this.div3);
+  
+  this.div4 = document.createElement('div');
+  this.div4.setAttribute('id', 'dimmerDiv4');
+  this.div4.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; opacity: 0.5; position: absolute');
+  document.body.appendChild(this.div4);
+  
+  this.divHeader = document.createElement('div');
+  this.divHeader.setAttribute('id', 'dimmerDiv4');
+  this.divHeader.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; opacity: 0.5; position: fixed; top: 100px; left: 100px; height: 200px; width: 200px');
+  document.body.appendChild(this.divHeader);
+  
+  this.positionDivs();
 }
 
 dimmer.positionDivs = function()

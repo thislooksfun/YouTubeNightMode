@@ -23,8 +23,6 @@ dimmer.init = function()
     
     this.initDivs();
     
-    this.isNight = false;
-    
     this.checkSize();
     window.setInterval(this.checkSize, 40);
     if (window.onresize != null) {
@@ -33,6 +31,12 @@ dimmer.init = function()
     }
   } else {
     this.dimmerButton = document.getElementById('dimmer');
+    this.div1 = document.getElementById('dimmerDiv1');
+    this.div2 = document.getElementById('dimmerDiv2');
+    this.div3 = document.getElementById('dimmerDiv3');
+    this.div4 = document.getElementById('dimmerDiv4');
+    this.divHeader = document.getElementById('dimmerDivHeader');
+    this.elementPosition = $('#dimmerDiv4').offset();
   }
 }
 
@@ -113,7 +117,13 @@ dimmer.checkSize = function()
     var match = /(watch-small|watch-medium|watch-medium-540|watch-large)/;
     this.oldClass = match.exec(player.className)[0];
     
-    dimmer.positionDivs();
+    this.positionDivs();
+  }
+  var docHeight = getDocHeight();
+  if (this.oldHeight != docHeight
+  {
+    this.oldHeight = docHeight;
+    this.positionDivs();
   }
 }
 
@@ -213,15 +223,5 @@ function getDocWidth() {
         D.body.clientWidth, D.documentElement.clientWidth
     );
 }
-
-$(window).scroll(function() {
-        if($(window).scrollTop() > dimmer.elementPosition.top){
-            $('#dimmerDiv4').css({'position':'fixed','top':'0'});
-            //$('.bg1 h2').css({'margin-top':'232px'});
-        } else {
-            $('#dimmerDiv4').css({'position':'static'});
-            //$('.bg1 h2').css({'margin-top':'100px'});
-        }    
-});
 
 dimmer.init();

@@ -65,7 +65,7 @@ dimmer.init = function()
     this.dimmerButton = document.getElementById('dimmer');
   }
   
-  setTimeout(this.refreshElements, 20)
+  setTimeout(this.refreshCSS, 20)
 }
 
 dimmer.refreshElements = function()
@@ -81,6 +81,17 @@ dimmer.refreshElements = function()
   this.div3.style.display = "";
   this.div4.style.display = "none";
   this.div4.style.display = "";
+}
+
+dimmer.refreshCSS = function()
+{
+  var links = document.getElementsByTagName("link");
+  for (var i = 0; i < links.length;i++) {
+    var link = links[i];
+    if (link.rel === "stylesheet") {
+      link.href += "?";
+    }
+  }
 }
 
 dimmer.positionDivs = function()

@@ -7,12 +7,6 @@ nightMode.init = function()
     this.pageElements = [];
     var eleNum = 0; //Element number
     
-    var css = document.createElement('link');
-    css.setAttribute('type', 'text/css');
-    css.setAttribute('rel', 'stylesheet');
-    css.setAttribute('href', 'https://raw.githubusercontent.com/thislooksfun/YouTubeNightMode/master/CSS/buttons.css');
-    document.head.appendChild(css);
-    
     //Format: {'element': Element, 'background': {'day': Day background color, 'night': Night background color], 'text': {'day': Day text color, 'night': Night text color}};
     this.pageElements[eleNum++] = {'element': document.body,                                    'background': {'day': '#f1f1f1', 'night': '#0e0e0e'}};
     this.pageElements[eleNum++] = {'element': document.getElementById('yt-masthead-container'), 'background': {'day': '#fff',    'night': '#000'}};
@@ -21,13 +15,19 @@ nightMode.init = function()
     this.pageElements[eleNum++] = {'element': document.getElementById('appbar-guide-button'),   'background': {'day': '', 'night': '#070707'}};
     this.pageElements[eleNum++] = {'element': document.getElementById('masthead-search-term'),  'text': {'day': '#000', 'night': '#fff'}};
     
+    
+    var css = document.createElement('link');
+    css.setAttribute('type', 'text/css');
+    css.setAttribute('rel', 'stylesheet');
+    css.setAttribute('href', 'https://raw.githubusercontent.com/thislooksfun/YouTubeNightMode/master/CSS/buttons.css');
+    document.head.appendChild(css);
+    
+    var container = document.getElementById('yt-masthead-user');
     this.nightButton = document.createElement('button');
     this.nightButton.setAttribute('id', 'nightButton');
     this.nightButton.setAttribute('onClick', 'nightMode.toggle()');
-    this.nightButton.setAttribute('class', 'yt-uix-button yt-uix-button-default yt-uix-button-size-default')
-    this.nightButton.setAttribute('style', 'position: relative; left: -5px');
+    this.nightButton.setAttribute('class', 'yt-uix-button yt-uix-button-default yt-uix-button-size-default tlf-button' + ((container.firstChild.className.search(/\btlf-button\b/) == -1) ? "-first" : ""));
     this.nightButton.innerHTML = 'Night Mode';
-    var container = document.getElementById('yt-masthead-user');
     container.insertBefore(this.nightButton, container.firstChild);
     
     this.isNight = false;

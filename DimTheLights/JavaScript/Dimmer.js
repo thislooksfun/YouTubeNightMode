@@ -19,18 +19,22 @@ dimmer.init = function()
     
     this.div1 = document.createElement('div');
     this.div1.setAttribute('id', 'dimmerDiv1');
+    this.div1.setAttribute('class', 'dimmer-overlay');
     document.body.appendChild(this.div1);
     
     this.div2 = document.createElement('div');
     this.div2.setAttribute('id', 'dimmerDiv2');
+    this.div2.setAttribute('class', 'dimmer-overlay');
     document.body.appendChild(this.div2);
     
     this.div3 = document.createElement('div');
     this.div3.setAttribute('id', 'dimmerDiv3');
+    this.div3.setAttribute('class', 'dimmer-overlay');
     document.body.appendChild(this.div3);
     
     this.div4 = document.createElement('div');
     this.div4.setAttribute('id', 'dimmerDiv4');
+    this.div4.setAttribute('class', 'dimmer-overlay');
     document.body.appendChild(this.div4);
     
     this.positionDivs();
@@ -54,45 +58,25 @@ dimmer.init = function()
 
 dimmer.positionDivs = function()
 {
-  this.div1.style.background = "#000";
-  this.div1.style.position = "absolute";
-  this.div1.style.zIndex = "2147483647";
   this.div1.style.left = "0px";
   this.div1.style.top = "0px";
   this.div1.style.height = "200px";
   this.div1.style.width = "200px";
-  this.div1.style.pointerEvents = "none";
-  this.div1.style.opacity = .5;
   
-  this.div2.style.background = "#081";
-  this.div2.style.position = "absolute";
-  this.div2.style.zIndex = "2147483647";
   this.div2.style.left = "0px";
   this.div2.style.top = "200px";
   this.div2.style.height = "200px";
   this.div2.style.width = "200px";
-  this.div2.style.pointerEvents = "none";
-  this.div2.style.opacity = .5;
-  
-  this.div3.style.background = "#073";
-  this.div3.style.position = "absolute";
-  this.div3.style.zIndex = "2147483647";
+
   this.div3.style.left = "200px";
   this.div3.style.top = "0px";
   this.div3.style.height = "200px";
   this.div3.style.width = "200px";
-  this.div3.style.pointerEvents = "none";
-  this.div3.style.opacity = .5;
   
-  this.div4.style.background = "#625";
-  this.div4.style.position = "absolute";
-  this.div4.style.zIndex = "2147483647";
   this.div4.style.left = "200px";
   this.div4.style.top = "200px";
   this.div4.style.height = "200px";
   this.div4.style.width = "200px";
-  this.div4.style.pointerEvents = "none";
-  this.div4.style.opacity = .5;
 }
 
 dimmer.onWindowResize = function()

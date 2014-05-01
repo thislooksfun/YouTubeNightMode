@@ -22,7 +22,8 @@ nightMode.init = function()
       this.nightButton.setAttribute('class', 'yt-uix-button yt-uix-button-default yt-uix-button-size-default')
       this.nightButton.setAttribute('style', 'position: relative; left: -5px');
       this.nightButton.innerHTML = 'Night Mode';
-      document.getElementById('yt-masthead-user').appendChild(this.nightButton);
+      var container = document.getElementById('yt-masthead-user');
+      container.insertBefore(this.nightButton, container.firstChild);
     } else {
       this.nightButton = document.getElementById('nightButton');
     }

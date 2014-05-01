@@ -20,9 +20,9 @@ dimmer.init = function()
     this.dimmerButton.setAttribute('id', 'dimmer');
     this.dimmerButton.setAttribute('onClick', 'dimmer.toggle()');
     this.dimmerButton.setAttribute('class', 'yt-uix-button yt-uix-button-default yt-uix-button-size-default');
-    this.dimmerButton.style.float = "right";
+    this.dimmerButton.setAttribute('style', 'position: relative; left: -5px');
     this.dimmerButton.innerHTML = 'Dim';
-    document.getElementById('yt-masthead-content').appendChild(this.dimmerButton);
+    document.getElementById('yt-masthead-user').appendChild(this.dimmerButton);
     
     this.div1 = document.createElement('div');
     this.div1.setAttribute('id', 'dimmerDiv1');

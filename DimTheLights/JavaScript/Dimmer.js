@@ -19,7 +19,7 @@ dimmer.init = function()
     this.dimmerButton = document.createElement('button');
     this.dimmerButton.setAttribute('id', 'dimmer');
     this.dimmerButton.setAttribute('onClick', 'dimmer.toggle()');
-    this.dimmerButton.setAttribute('class', 'yt-uix-button yt-uix-button-default yt-uix-button-size-default');
+    this.dimmerButton.setAttribute('class', 'yt-uix-button yt-uix-button-default yt-uix-button-size-default tlf-button');
     this.dimmerButton.setAttribute('style', 'position: relative; left: -5px');
     this.dimmerButton.innerHTML = 'Dim';
     var container = document.getElementById('yt-masthead-user');
@@ -27,22 +27,22 @@ dimmer.init = function()
     
     this.div1 = document.createElement('div');
     this.div1.setAttribute('id', 'dimmerDiv1');
-    this.div1.setAttribute('class', 'dimmer-overlay');
+    this.div1.setAttribute('class', 'tlf-dimmer-overlay');
     document.body.appendChild(this.div1);
     
     this.div2 = document.createElement('div');
     this.div2.setAttribute('id', 'dimmerDiv2');
-    this.div2.setAttribute('class', 'dimmer-overlay');
+    this.div2.setAttribute('class', 'tlf-dimmer-overlay');
     document.body.appendChild(this.div2);
     
     this.div3 = document.createElement('div');
     this.div3.setAttribute('id', 'dimmerDiv3');
-    this.div3.setAttribute('class', 'dimmer-overlay');
+    this.div3.setAttribute('class', 'tlf-dimmer-overlay');
     document.body.appendChild(this.div3);
     
     this.div4 = document.createElement('div');
     this.div4.setAttribute('id', 'dimmerDiv4');
-    this.div4.setAttribute('class', 'dimmer-overlay');
+    this.div4.setAttribute('class', 'tlf-dimmer-overlay');
     document.body.appendChild(this.div4);
     
     this.positionDivs();

@@ -107,6 +107,7 @@ dimmer.onWindowResize = function()
   if (this.oldResizeEvent != null) {
     this.oldResizeEvent();
   }
+  this.positionDivs();
 }
 
 dimmer.checkSize = function()

@@ -36,7 +36,6 @@ dimmer.init = function()
     this.div3 = document.getElementById('dimmerDiv3');
     this.div4 = document.getElementById('dimmerDiv4');
     this.divHeader = document.getElementById('dimmerDivHeader');
-    this.elementPosition = $('#dimmerDiv4').offset();
   }
 }
 
@@ -61,7 +60,6 @@ dimmer.initDivs = function()
   this.div4.setAttribute('id', 'dimmerDiv4');
   this.div4.setAttribute('style', 'background: #000; z-index: 1999999998; pointer-events: none; opacity: 0.5; position: absolute');
   document.body.appendChild(this.div4);
-  this.elementPosition = $('#dimmerDiv4').offset();
   
   this.divHeader = document.createElement('div');
   this.divHeader.setAttribute('id', 'dimmerDivHeader');

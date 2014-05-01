@@ -91,13 +91,13 @@ dimmer.positionDivs = function()
   
   this.div4.style.left = "0px";
   this.div4.style.top = playerRect.bottom + "px";
-  this.div4.style.height = getDocHeight() + "px";
+  this.div4.style.height = (getDocHeight() - playerRect.bottom) + "px";
   this.div4.style.width = getDocWidth() + "px";
   
   this.divHeader.style.left = "0px";
   this.divHeader.style.top = "0px";
-  this.divHeader.style.width = getDocWidth() + "px";
   this.divHeader.style.height = headerRect.bottom + "px";
+  this.divHeader.style.width = getDocWidth() + "px";
 }
 
 dimmer.onWindowResize = function()

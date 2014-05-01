@@ -26,7 +26,7 @@ nightMode.init = function()
     this.nightButton = document.createElement('button');
     this.nightButton.setAttribute('id', 'nightButton');
     this.nightButton.setAttribute('onClick', 'nightMode.toggle()');
-    this.nightButton.setAttribute('class', 'yt-uix-button yt-uix-button-default yt-uix-button-size-default tlf-button' + ((container.firstChild.className.search(/\btlf-button\b/) == -1) ? "-first" : ""));
+    this.nightButton.className = 'yt-uix-button yt-uix-button-default yt-uix-button-size-default tlf-button' + ((container.firstChild.className.search(/\btlf-button\b/) == -1) ? "-first" : "");
     this.nightButton.innerHTML = 'Night Mode';
     container.insertBefore(this.nightButton, container.firstChild);
     

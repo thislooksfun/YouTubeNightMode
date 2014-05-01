@@ -81,7 +81,6 @@ dimmer.refreshElements = function()
 dimmer.positionDivs = function()
 {
   var rect = document.getElementById('player').getBoundingClientRect();
-  alert(rect.top + ', ' + rect.right + ', ' + rect.bottom + ', ' + rect.left);
   
   this.div1.style.left = "0px";
   this.div1.style.top = "0px";

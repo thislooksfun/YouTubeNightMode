@@ -19,6 +19,8 @@ dimmer.init = function()
     this.dimmerButton.innerHTML = 'Dim';
     container.insertBefore(this.dimmerButton, container.firstChild);
     
+    this.initDivs();
+    
     this.isNight = false;
     
     this.checkSize();

@@ -5,7 +5,7 @@ dimmer.init = function()
 {
   if (document.getElementById('dimmer') == null) {
     
-    alert(getDocHeight() ", " + getDocWidth());
+    alert(getDocHeight() + ", " + getDocWidth());
     
     if (!this.isVideo()) {
       alert("This isn't a video! Please open a video and try again.");
@@ -74,7 +74,7 @@ dimmer.positionDivs = function()
   this.div1.style.left = "0px";
   this.div1.style.top = "0px";
   this.div1.style.height = playerRect.top + "px";
-  this.div1.style.width = screen.availWidth + "px";
+  this.div1.style.width = getDocWidth() + "px";
   
   this.div2.style.left = "0px";
   this.div2.style.top = playerRect.top + "px";
@@ -84,16 +84,16 @@ dimmer.positionDivs = function()
   this.div3.style.left = playerRect.right + "px";
   this.div3.style.top = playerRect.top + "px";
   this.div3.style.height = (playerRect.bottom - playerRect.top) + "px";
-  this.div3.style.width = (screen.availWidth - playerRect.right) + "px";
+  this.div3.style.width = (getDocWidth() - playerRect.right) + "px";
   
   this.div4.style.left = "0px";
   this.div4.style.top = playerRect.bottom + "px";
-  this.div4.style.height = (screen.availHeight - playerRect.bottom) + "px";
-  this.div4.style.width = screen.availWidth + "px";
+  this.div4.style.height = (getDocHeight() - playerRect.bottom) + "px";
+  this.div4.style.width = getDocWidth() + "px";
   
   this.divHeader.style.left = "0px";
   this.divHeader.style.top = "0px";
-  this.divHeader.style.width = screen.availWidth;
+  this.divHeader.style.width = getDocWidth();
   this.divHeader.style.height = headerRect.bottom;
 }
 

@@ -10,18 +10,6 @@ dimmer.init = function()
       return;
     }
     
-    var css = document.createElement('link');
-    css.setAttribute('type', 'text/css');
-    css.setAttribute('rel', 'stylesheet');
-    css.setAttribute('href', 'https://raw.githubusercontent.com/thislooksfun/YouTubeNightMode/master/DimTheLights/CSS/dimmer.css');
-    document.head.appendChild(css);
-    
-    css = document.createElement('link');
-    css.setAttribute('type', 'text/css');
-    css.setAttribute('rel', 'stylesheet');
-    css.setAttribute('href', 'https://raw.githubusercontent.com/thislooksfun/YouTubeNightMode/master/CSS/buttons.css');
-    document.head.appendChild(css);
-    
     var container = document.getElementById('yt-masthead-user');
     this.dimmerButton = document.createElement('button');
     this.dimmerButton.setAttribute('id', 'dimmer');

@@ -15,13 +15,6 @@ nightMode.init = function()
     this.pageElements[eleNum++] = {'element': document.getElementById('appbar-guide-button'),   'background': {'day': '', 'night': '#070707'}};
     this.pageElements[eleNum++] = {'element': document.getElementById('masthead-search-term'),  'text': {'day': '#000', 'night': '#fff'}};
     
-    
-    var css = document.createElement('link');
-    css.setAttribute('type', 'text/css');
-    css.setAttribute('rel', 'stylesheet');
-    css.setAttribute('href', 'https://raw.githubusercontent.com/thislooksfun/YouTubeNightMode/master/CSS/buttons.css');
-    document.head.appendChild(css);
-    
     var container = document.getElementById('yt-masthead-user');
     this.nightButton = document.createElement('button');
     this.nightButton.setAttribute('id', 'nightButton');

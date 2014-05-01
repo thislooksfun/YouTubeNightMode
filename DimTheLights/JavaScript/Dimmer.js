@@ -97,7 +97,11 @@ dimmer.positionDivs = function()
   
   this.div4.style.left = "0px";
   this.div4.style.top = playerRect.bottom + "px";
-  this.div4.style.height = (getDocHeight() - playerRect.bottom) + "px";
+  if (this.div4.style.height != ((getDocHeight() - playerRect.bottom) + "px")) {
+    this.div4.style.height = (getDocHeight() - playerRect.bottom) + "px";
+  } else {
+    alert(this.div4.style.height);
+  }
   this.div4.style.width = getDocWidth() + "px";
   
   this.divHeader.style.left = "0px";

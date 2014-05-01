@@ -31,6 +31,7 @@ dimmer.init = function()
     }
   } else {
     this.dimmerButton = document.getElementById('dimmer');
+    this.divContainer = document.getElementById('dimmerDivContainer');
     this.div1 = document.getElementById('dimmerDiv1');
     this.div2 = document.getElementById('dimmerDiv2');
     this.div3 = document.getElementById('dimmerDiv3');
@@ -41,30 +42,35 @@ dimmer.init = function()
 
 dimmer.initDivs = function()
 {
+  this.divContainer = document.createElement('div');
+  this.divContainer.setAttribute('id', 'dimmerDivContainer');
+  this.divContainer.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; opacity: 0.5; position: absolute');
+  document.body.appendChild(this.div1);
+  
   this.div1 = document.createElement('div');
   this.div1.setAttribute('id', 'dimmerDiv1');
-  this.div1.setAttribute('style', 'background: #000; z-index: 1999999998; pointer-events: none; opacity: 0.5; position: absolute');
-  document.body.appendChild(this.div1);
+  this.div1.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; position: absolute');
+  this.divContainer.appendChild(this.div1);
   
   this.div2 = document.createElement('div');
   this.div2.setAttribute('id', 'dimmerDiv2');
-  this.div2.setAttribute('style', 'background: #000; z-index: 1999999998; pointer-events: none; opacity: 0.5; position: absolute');
-  document.body.appendChild(this.div2);
+  this.div2.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; position: absolute');
+  this.divContainer.appendChild(this.div2);
   
   this.div3 = document.createElement('div');
   this.div3.setAttribute('id', 'dimmerDiv3');
-  this.div3.setAttribute('style', 'background: #000; z-index: 1999999998; pointer-events: none; opacity: 0.5; position: absolute');
-  document.body.appendChild(this.div3);
+  this.div3.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; position: absolute');
+  this.divContainer.appendChild(this.div3);
   
   this.div4 = document.createElement('div');
   this.div4.setAttribute('id', 'dimmerDiv4');
-  this.div4.setAttribute('style', 'background: #000; z-index: 1999999998; pointer-events: none; opacity: 0.5; position: absolute');
-  document.body.appendChild(this.div4);
+  this.div4.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none;; position: absolute');
+  this.divContainer.appendChild(this.div4);
   
   this.divHeader = document.createElement('div');
   this.divHeader.setAttribute('id', 'dimmerDivHeader');
-  this.divHeader.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; opacity: 0.5; position: fixed;');
-  document.body.appendChild(this.divHeader);
+  this.divHeader.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; position: fixed;');
+  this.divContainer.appendChild(this.divHeader);
   
   this.positionDivs();
 }

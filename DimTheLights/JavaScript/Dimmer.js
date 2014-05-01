@@ -70,12 +70,17 @@ dimmer.init = function()
 
 dimmer.refreshElements = function()
 {
-  this.dimmerButton.hide().show();
+  this.dimmerButton.style.display = "none";
+  this.dimmerButton.style.display = "";
   
-  this.div1.hide().show();
-  this.div2.hide().show();
-  this.div3.hide().show();
-  this.div4.hide().show();
+  this.div1.style.display = "none";
+  this.div1.style.display = "";
+  this.div2.style.display = "none";
+  this.div2.style.display = "";
+  this.div3.style.display = "none";
+  this.div3.style.display = "";
+  this.div4.style.display = "none";
+  this.div4.style.display = "";
 }
 
 dimmer.positionDivs = function()

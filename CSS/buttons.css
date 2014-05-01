@@ -1,9 +1,8 @@
-.tlf-button {
-  position: relative;
-  right: 3px;
+.tlf-button, .tlf-button-first {
+  position: relative !important;
+  right: 3px !important;
 }
 
 .tlf-button-first {
-  position: relative;
-  right: 5px;
+  right: 5px !important;
 }

@@ -57,6 +57,7 @@ dimmer.initDivs = function()
   this.div4.setAttribute('id', 'dimmerDiv4');
   this.div4.setAttribute('style', 'background: #000; z-index: 1999999998; pointer-events: none; opacity: 0.5; position: absolute');
   document.body.appendChild(this.div4);
+  this.elementPosition = $('#dimmerDiv4').offset();
   
   this.divHeader = document.createElement('div');
   this.divHeader.setAttribute('id', 'dimmerDivHeader');
@@ -213,14 +214,13 @@ function getDocWidth() {
     );
 }
 
-dimmer.elementPosition = $('#dimmerDiv4').offset();
 $(window).scroll(function() {
         if($(window).scrollTop() > dimmer.elementPosition.top){
             $('#dimmerDiv4').css({'position':'fixed','top':'0'});
-            $('.bg1 h2').css({'margin-top':'232px'});
+            //$('.bg1 h2').css({'margin-top':'232px'});
         } else {
             $('#dimmerDiv4').css({'position':'static'});
-            $('.bg1 h2').css({'margin-top':'100px'});
+            //$('.bg1 h2').css({'margin-top':'100px'});
         }    
 });
 

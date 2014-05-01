@@ -88,7 +88,7 @@ dimmer.positionDivs = function()
   
   this.div4.style.left = "0px";
   this.div4.style.top = playerRect.bottom + "px";
-  this.div4.style.height = (getDocHeight() - playerRect.bottom) + "px";
+  this.div4.style.height = screen.availHeight + "px";
   this.div4.style.width = getDocWidth() + "px";
   
   this.divHeader.style.left = "0px";
@@ -212,5 +212,16 @@ function getDocWidth() {
         D.body.clientWidth, D.documentElement.clientWidth
     );
 }
+
+var elementPosition = $('#dimmerDiv4').offset();
+$(window).scroll(function() {
+        if($(window).scrollTop() > elementPosition.top){
+            $('#dimmerDiv4').css({'position':'fixed','top':'0'});
+            $('.bg1 h2').css({'margin-top':'232px'});
+        } else {
+            $('#dimmerDiv4').css({'position':'static'});
+            $('.bg1 h2').css({'margin-top':'100px'});
+        }    
+});
 
 dimmer.init();

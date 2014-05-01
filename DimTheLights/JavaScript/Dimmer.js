@@ -40,22 +40,22 @@ dimmer.initDivs = function()
 {
   this.div1 = document.createElement('div');
   this.div1.setAttribute('id', 'dimmerDiv1');
-  this.div1.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; opacity: 0.5; position: absolute');
+  this.div1.setAttribute('style', 'background: #000; z-index: 1999999998; pointer-events: none; opacity: 0.5; position: absolute');
   document.body.appendChild(this.div1);
   
   this.div2 = document.createElement('div');
   this.div2.setAttribute('id', 'dimmerDiv2');
-  this.div2.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; opacity: 0.5; position: absolute');
+  this.div2.setAttribute('style', 'background: #000; z-index: 1999999998; pointer-events: none; opacity: 0.5; position: absolute');
   document.body.appendChild(this.div2);
   
   this.div3 = document.createElement('div');
   this.div3.setAttribute('id', 'dimmerDiv3');
-  this.div3.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; opacity: 0.5; position: absolute');
+  this.div3.setAttribute('style', 'background: #000; z-index: 1999999998; pointer-events: none; opacity: 0.5; position: absolute');
   document.body.appendChild(this.div3);
   
   this.div4 = document.createElement('div');
   this.div4.setAttribute('id', 'dimmerDiv4');
-  this.div4.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; opacity: 0.5; position: absolute');
+  this.div4.setAttribute('style', 'background: #000; z-index: 1999999998; pointer-events: none; opacity: 0.5; position: absolute');
   document.body.appendChild(this.div4);
   
   this.divHeader = document.createElement('div');
@@ -68,7 +68,7 @@ dimmer.initDivs = function()
 
 dimmer.positionDivs = function()
 {
-  var playerRect = document.getElementById('player').getBoundingClientRect();
+  var playerRect = document.getElementById('player-api').getBoundingClientRect();
   var headerRect = document.getElementById('masthead-positioner').getBoundingClientRect();
   
   this.div1.style.left = "0px";

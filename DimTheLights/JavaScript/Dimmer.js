@@ -5,6 +5,8 @@ dimmer.init = function()
 {
   if (document.getElementById('dimmer') == null) {
     
+    alert(getDocHeight() ", " + getDocWidth());
+    
     if (!this.isVideo()) {
       alert("This isn't a video! Please open a video and try again.");
       return;
@@ -57,8 +59,8 @@ dimmer.initDivs = function()
   document.body.appendChild(this.div4);
   
   this.divHeader = document.createElement('div');
-  this.divHeader.setAttribute('id', 'dimmerDiv4');
-  this.divHeader.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; opacity: 0.5; position: fixed; top: 100px; left: 100px; height: 200px; width: 200px');
+  this.divHeader.setAttribute('id', 'dimmerDivHeader');
+  this.divHeader.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; opacity: 0.5; position: fixed;');
   document.body.appendChild(this.divHeader);
   
   this.positionDivs();
@@ -66,27 +68,33 @@ dimmer.initDivs = function()
 
 dimmer.positionDivs = function()
 {
-  var rect = document.getElementById('player').getBoundingClientRect();
+  var playerRect = document.getElementById('player').getBoundingClientRect();
+  var headerRect = document.getElementById('masthead-positioner').getBoundingClientRect();
   
   this.div1.style.left = "0px";
   this.div1.style.top = "0px";
-  this.div1.style.height = rect.top + "px";
+  this.div1.style.height = playerRect.top + "px";
   this.div1.style.width = screen.availWidth + "px";
   
   this.div2.style.left = "0px";
-  this.div2.style.top = rect.top + "px";
-  this.div2.style.height = (rect.bottom - rect.top) + "px";
-  this.div2.style.width = rect.left + "px";
+  this.div2.style.top = playerRect.top + "px";
+  this.div2.style.height = (playerRect.bottom - playerRect.top) + "px";
+  this.div2.style.width = playerRect.left + "px";
 
-  this.div3.style.left = rect.right + "px";
-  this.div3.style.top = rect.top + "px";
-  this.div3.style.height = (rect.bottom - rect.top) + "px";
-  this.div3.style.width = (screen.availWidth - rect.right) + "px";
+  this.div3.style.left = playerRect.right + "px";
+  this.div3.style.top = playerRect.top + "px";
+  this.div3.style.height = (playerRect.bottom - playerRect.top) + "px";
+  this.div3.style.width = (screen.availWidth - playerRect.right) + "px";
   
   this.div4.style.left = "0px";
-  this.div4.style.top = rect.bottom + "px";
-  this.div4.style.height = (screen.availHeight - rect.bottom) + "px";
+  this.div4.style.top = playerRect.bottom + "px";
+  this.div4.style.height = (screen.availHeight - playerRect.bottom) + "px";
   this.div4.style.width = screen.availWidth + "px";
+  
+  this.divHeader.style.left = "0px";
+  this.divHeader.style.top = "0px";
+  this.divHeader.style.width = screen.availWidth;
+  this.divHeader.style.height = headerRect.bottom;
 }
 
 dimmer.onWindowResize = function()
@@ -188,5 +196,21 @@ dimmer.toggle = function()
   }
 }
 
+function getDocHeight() {
+    var D = document;
+    return Math.max(
+        D.body.scrollHeight, D.documentElement.scrollHeight,
+        D.body.offsetHeight, D.documentElement.offsetHeight,
+        D.body.clientHeight, D.documentElement.clientHeight
+    );
+}
+function getDocWidth() {
+    var D = document;
+    return Math.max(
+        D.body.scrollWidth, D.documentElement.scrollWidth,
+        D.body.offsetWidth, D.documentElement.offsetWidth,
+        D.body.clientWidth, D.documentElement.clientWidth
+    );
+}
 
 dimmer.init();

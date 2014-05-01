@@ -39,12 +39,8 @@ nightMode.init = function()
 
 nightMode.refreshElements = function()
 {
-  this.dimmerButton.hide().show();
-  
-  this.div1.hide().show();
-  this.div2.hide().show();
-  this.div3.hide().show();
-  this.div4.hide().show();
+  this.nightButton.style.display = "none";
+  this.nightButton.style.display = "";
 }
 
 nightMode.setNight = function()

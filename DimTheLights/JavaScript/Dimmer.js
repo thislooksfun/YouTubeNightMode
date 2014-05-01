@@ -64,6 +64,18 @@ dimmer.init = function()
   } else {
     this.dimmerButton = document.getElementById('dimmer');
   }
+  
+  setTimeout(this.refreshElements, 20)
+}
+
+dimmer.refreshElements = function()
+{
+  this.dimmerButton.hide().show();
+  
+  this.div1.hide().show();
+  this.div2.hide().show();
+  this.div3.hide().show();
+  this.div4.hide().show();
 }
 
 dimmer.positionDivs = function()

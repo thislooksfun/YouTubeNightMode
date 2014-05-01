@@ -121,7 +121,7 @@ dimmer.checkSize = function()
     this.positionDivs();
   }
   var docHeight = getDocHeight();
-  if (this.oldHeight != docHeight
+  if (this.oldHeight != docHeight)
   {
     this.oldHeight = docHeight;
     this.positionDivs();

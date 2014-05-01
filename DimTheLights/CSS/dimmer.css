@@ -5,12 +5,3 @@
   z-index: 2147483647;
   opacity: 0.5;
 }
-
-.tlf-button .tlf-button-first {
-  position: relative;
-  left: 3px;
-}
-
-.tlf-button-first {
-  left: 5px;
-}

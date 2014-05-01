@@ -71,7 +71,7 @@ dimmer.positionDivs = function()
   this.div1.style.left = "0px";
   this.div1.style.top = "0px";
   this.div1.style.height = rect.top + "px";
-  this.div1.style.width = window.availWidth + "px";
+  this.div1.style.width = screen.availWidth + "px";
   
   this.div2.style.left = "0px";
   this.div2.style.top = rect.top + "px";
@@ -85,8 +85,8 @@ dimmer.positionDivs = function()
   
   this.div4.style.left = "0px";
   this.div4.style.top = rect.bottom + "px";
-  this.div4.style.height = (window.availHeight - rect.bottom) + "px";
-  this.div4.style.width = window.availWidth + "px";
+  this.div4.style.height = (screen.availHeight - rect.bottom) + "px";
+  this.div4.style.width = screen.availWidth + "px";
 }
 
 dimmer.onWindowResize = function()

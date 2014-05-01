@@ -126,11 +126,10 @@ dimmer.checkSize = function()
     
     dimmer.positionDivs();
   }
-  var docHeight = getDocHeight();
-  if (dimmer.oldHeight != docHeight)
+  if (dimmer.oldHeight != getDocHeight())
   {
     dimmer.positionDivs();
-    dimmer.oldHeight = docHeight;
+    dimmer.oldHeight = getDocHeight();
   }
 }
 

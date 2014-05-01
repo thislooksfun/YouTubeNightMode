@@ -27,7 +27,6 @@ dimmer.init = function()
     this.dimmerButton.setAttribute('id', 'dimmer');
     this.dimmerButton.setAttribute('onClick', 'dimmer.toggle()');
     this.dimmerButton.setAttribute('class', 'yt-uix-button yt-uix-button-default yt-uix-button-size-default tlf-button' + ((container.firstChild.className.search(/\btlf-button\b/) == -1) ? "-first" : ""));
-    this.dimmerButton.setAttribute('style', 'position: relative; left: -5px');
     this.dimmerButton.innerHTML = 'Dim';
     container.insertBefore(this.dimmerButton, container.firstChild);
     

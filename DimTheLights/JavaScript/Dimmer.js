@@ -65,33 +65,31 @@ dimmer.init = function()
     this.dimmerButton = document.getElementById('dimmer');
   }
   
-  setTimeout(this.refreshCSS, 20)
+  setTimeout(this.refreshElements, 20)
 }
 
 dimmer.refreshElements = function()
 {
+  setTimeout(this.hideElements, 20);
+  setTimeout(this.showElements, 40);
+}
+dimmer.hideElements = function()
+{
   this.dimmerButton.style.display = "none";
-  this.dimmerButton.style.display = "";
   
   this.div1.style.display = "none";
-  this.div1.style.display = "";
   this.div2.style.display = "none";
-  this.div2.style.display = "";
   this.div3.style.display = "none";
-  this.div3.style.display = "";
   this.div4.style.display = "none";
-  this.div4.style.display = "";
 }
-
-dimmer.refreshCSS = function()
+dimmer.showElements = function()
 {
-  var links = document.getElementsByTagName("link");
-  for (var i = 0; i < links.length;i++) {
-    var link = links[i];
-    if (link.rel === "stylesheet") {
-      link.href += "?";
-    }
-  }
+  this.dimmerButton.style.display = "";
+  
+  this.div1.style.display = "";
+  this.div2.style.display = "";
+  this.div3.style.display = "";
+  this.div4.style.display = "";
 }
 
 dimmer.positionDivs = function()

@@ -48,14 +48,9 @@ dimmer.init = function()
 
 dimmer.initDivs = function()
 {
-  this.divContainer = document.createElement('div');
-  this.divContainer.id = 'dimmerDivContainer';
-  this.divContainer.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; opacity: 0.5; position: absolute');
-  document.body.appendChild(this.divContainer);
-  
   this.divTop = document.createElement('div');
   this.divTop.id = 'dimmerDivTop';
-  this.divTop.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; position: absolute');
+  this.divTop.setAttribute('style', 'background: #000; z-index: 1999999999; pointer-events: none; position: absolute');
   document.body.appendChild(this.divTop);
   
   this.divLeft = document.createElement('div');
@@ -87,9 +82,9 @@ dimmer.positionDivs = function()
   var headerRect = document.getElementById('masthead-positioner').getBoundingClientRect();
   
   this.divTop.style.left = "0px";
-  this.divTop.style.top = "0px";
-  this.divTop.style.height = playerRect.top + "px";
-  this.divTop.style.width = getDocWidth() + "px";
+  this.divTop.style.top = headerRect.bottom + "px";
+  this.divTop.style.height = (headerRect.bottom - playerRect.top) + "px";
+  this.divTop.style.width = "100%";
   
   this.divLeft.style.left = "0px";
   this.divLeft.style.top = playerRect.top + "px";
@@ -104,12 +99,12 @@ dimmer.positionDivs = function()
   this.divBottom.style.left = "0px";
   this.divBottom.style.top = playerRect.bottom + "px";
   this.divBottom.style.height = screen.availHeight + "px";
-  this.divBottom.style.width = getDocWidth() + "px";
+  this.divBottom.style.width = "100%";
   
   this.divHeader.style.left = "0px";
   this.divHeader.style.top = "0px";
   this.divHeader.style.height = headerRect.bottom + "px";
-  this.divHeader.style.width = getDocWidth() + "px";
+  this.divHeader.style.width = "100%";
 }
 
 dimmer.onWindowResize = function()

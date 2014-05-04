@@ -90,7 +90,7 @@ dimmer.positionDivs = function()
   
   this.divTop.style.left = "0px";
   this.divTop.style.top = headerRect.bottom + "px";
-  this.divTop.style.height = (headerRect.bottom - playerRect.top) + "px";
+  this.divTop.style.height = (playerRect.top - headerRect.bottom) + "px";
   this.divTop.style.width = "100%";
   
   this.divLeft.style.left = "0px";

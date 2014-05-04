@@ -89,8 +89,8 @@ dimmer.positionDivs = function()
   var headerRect = document.getElementById('masthead-positioner').getBoundingClientRect();
   
   this.divTop.style.left = "0px";
-  this.divTop.style.top = headerRect.bottom + "px";
-  this.divTop.style.height = (playerRect.top - headerRect.bottom) + "px";
+  this.divTop.style.top = "0px";
+  this.divTop.style.height = playerRect.top + "px";
   this.divTop.style.width = "100%";
   
   this.divLeft.style.left = "0px";

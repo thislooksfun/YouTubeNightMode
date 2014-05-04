@@ -13,7 +13,8 @@ dimmer.init = function()
     }
     
     var jq = document.getElementById('script');
-    jq.type = 
+    jq.type = 'text/javascript';
+    jq.
     
     var container = document.getElementById('yt-masthead-user');
     this.dimmerButton = document.createElement('button');
@@ -35,11 +36,10 @@ dimmer.init = function()
     }
   } else {
     this.dimmerButton = document.getElementById('dimmer');
-    this.divContainer = document.getElementById('dimmerDivContainer');
-    this.div1 = document.getElementById('dimmerDiv1');
-    this.div2 = document.getElementById('dimmerDiv2');
-    this.div3 = document.getElementById('dimmerDiv3');
-    this.div4 = document.getElementById('dimmerDiv4');
+    this.divTop = document.getElementById('dimmerDivTop');
+    this.divLeft = document.getElementById('dimmerDivLeft');
+    this.divLeft = document.getElementById('dimmerDivRight');
+    this.divBottom = document.getElementById('dimmerDivBottom');
     this.divHeader = document.getElementById('dimmerDivHeader');
   }
 }
@@ -51,30 +51,30 @@ dimmer.initDivs = function()
   this.divContainer.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; opacity: 0.5; position: absolute');
   document.body.appendChild(this.divContainer);
   
-  this.div1 = document.createElement('div');
-  this.div1.id = 'dimmerDiv1';
-  this.div1.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; position: absolute');
-  this.divContainer.appendChild(this.div1);
+  this.divTop = document.createElement('div');
+  this.divTop.id = 'dimmerDivTop';
+  this.divTop.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; position: absolute');
+  document.body.appendChild(this.divTop);
   
-  this.div2 = document.createElement('div');
-  this.div2.id = 'dimmerDiv2';
-  this.div2.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; position: absolute');
-  this.divContainer.appendChild(this.div2);
+  this.divLeft = document.createElement('div');
+  this.divLeft.id = 'dimmerDivLeft';
+  this.divLeft.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; position: absolute');
+  document.body.appendChild(this.divLeft);
   
-  this.div3 = document.createElement('div');
-  this.div3.id = 'dimmerDiv3';
-  this.div3.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; position: absolute');
-  this.divContainer.appendChild(this.div3);
+  this.divRight = document.createElement('div');
+  this.divRight.id = 'dimmerDivRight';
+  this.divRight.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; position: absolute');
+  document.body.appendChild(this.divRight);
   
-  this.div4 = document.createElement('div');
-  this.div4.id = 'dimmerDiv4';
-  this.div4.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none;; position: absolute');
-  this.divContainer.appendChild(this.div4);
+  this.divBottom = document.createElement('div');
+  this.divBottom.id = 'dimmerDivBottom';
+  this.divBottom.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none;; position: absolute');
+  document.body.appendChild(this.divBottom);
   
   this.divHeader = document.createElement('div');
   this.divHeader.id = 'dimmerDivHeader';
   this.divHeader.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; position: fixed;');
-  this.divContainer.appendChild(this.divHeader);
+  document.body.appendChild(this.divHeader);
   
   this.positionDivs();
 }
@@ -84,26 +84,25 @@ dimmer.positionDivs = function()
   var playerRect = document.getElementById('player-api').getBoundingClientRect();
   var headerRect = document.getElementById('masthead-positioner').getBoundingClientRect();
   
-  this.div1.style.left = "0px";
-  this.div1.style.top = "0px";
-  this.div1.style.height = playerRect.top + "px";
-  this.div1.style.width = getDocWidth() + "px";
+  this.divTop.style.left = "0px";
+  this.divTop.style.top = "0px";
+  this.divTop.style.height = playerRect.top + "px";
+  this.divTop.style.width = getDocWidth() + "px";
   
-  this.div2.style.left = "0px";
-  this.div2.style.top = playerRect.top + "px";
-  this.div2.style.height = (playerRect.bottom - playerRect.top) + "px";
-  this.div2.style.width = playerRect.left + "px";
+  this.divLeft.style.left = "0px";
+  this.divLeft.style.top = playerRect.top + "px";
+  this.divLeft.style.height = (playerRect.bottom - playerRect.top) + "px";
+  this.divLeft.style.width = playerRect.left + "px";
 
-  this.div3.style.left = playerRect.right + "px";
-  this.div3.style.top = playerRect.top + "px";
-  this.div3.style.height = (playerRect.bottom - playerRect.top) + "px";
-  this.div3.style.width = (getDocWidth() - playerRect.right) + "px";
+  this.divRight.style.left = playerRect.right + "px";
+  this.divRight.style.top = playerRect.top + "px";
+  this.divRight.style.height = (playerRect.bottom - playerRect.top) + "px";
+  this.divRight.style.width = (getDocWidth() - playerRect.right) + "px";
   
-  this.div4.style.left = "0px";
-  this.div4.style.top = playerRect.bottom + "px";
-  this.div4.style.height = (getDocHeight() - playerRect.bottom) + "px";
-  alert(this.div4.style.height);
-  this.div4.style.width = getDocWidth() + "px";
+  this.divBottom.style.left = "0px";
+  this.divBottom.style.top = playerRect.bottom + "px";
+  this.divBottom.style.height = screen.availHeight + "px";
+  this.divBottom.style.width = getDocWidth() + "px";
   
   this.divHeader.style.left = "0px";
   this.divHeader.style.top = "0px";
@@ -154,10 +153,10 @@ dimmer.setNight = function()
   if (this.opacity < 80)
   {
     this.opacity = this.opacity + 1;
-    this.div1.style.opacity = this.opacity/100;
-    this.div2.style.opacity = this.opacity/100;
-    this.div3.style.opacity = this.opacity/100;
-    this.div4.style.opacity = this.opacity/100;
+    this.divTop.style.opacity = this.opacity/100;
+    this.divLeft.style.opacity = this.opacity/100;
+    this.divRight.style.opacity = this.opacity/100;
+    this.divBottom.style.opacity = this.opacity/100;
   } else {
     window.clearInterval(this.nightInterval)
     this.nightInterval = null;
@@ -170,10 +169,10 @@ dimmer.setDay = function()
   if (this.opacity > 0)
   {
     this.opacity = this.opacity - 1;
-    this.div1.style.opacity = this.opacity/100;
-    this.div2.style.opacity = this.opacity/100;
-    this.div3.style.opacity = this.opacity/100;
-    this.div4.style.opacity = this.opacity/100;
+    this.divTop.style.opacity = this.opacity/100;
+    this.divLeft.style.opacity = this.opacity/100;
+    this.divRight.style.opacity = this.opacity/100;
+    this.divBottom.style.opacity = this.opacity/100;
   } else {
     window.clearInterval(this.dayInterval)
     this.dayInterval = null;

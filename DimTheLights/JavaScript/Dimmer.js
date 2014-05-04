@@ -42,6 +42,8 @@ dimmer.init = function()
     this.divBottom = document.getElementById('dimmerDivBottom');
     this.divHeader = document.getElementById('dimmerDivHeader');
   }
+  
+  this.topPos = $('#divBottom').offset().top;
 }
 
 dimmer.initDivs = function()
@@ -231,5 +233,22 @@ function getDocWidth() {
         D.body.clientWidth, D.documentElement.clientWidth
     );
 }
+
+var fixDiv = function () {
+    var $cache = $('#divBottom');
+    var top = 50;
+    if ($(window).scrollTop() > (dimmer.topPos - top)) {
+        $cache.css({
+            'position': 'fixed',
+                'top': top + 'px'
+        });
+    } else {
+        $cache.css({
+            'position': 'absolute',
+                'top': dimmer.topPos + 'px'
+        });
+    }
+};
+$(window).scroll(fixDiv);
 
 dimmer.init();

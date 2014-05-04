@@ -40,7 +40,7 @@ dimmer.init = function()
   }
   
   function fixDiv() {
-    var $cache = $('#divBottom');
+    var $cache = $('#dimmerDivBottom');
     var top = 50;
     if ($(window).scrollTop() > (dimmer.topPos - top)) {
       $cache.css({'position': 'fixed', 'top': top + 'px'});
@@ -50,7 +50,7 @@ dimmer.init = function()
   };
   $(window).scroll(fixDiv);
   
-  this.topPos = $('#divBottom').offset().top;
+  this.topPos = $('#dimmerDivBottom').offset().top;
 }
 
 dimmer.initDivs = function()

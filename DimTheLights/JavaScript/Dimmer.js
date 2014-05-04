@@ -12,9 +12,10 @@ dimmer.init = function()
       return;
     }
     
-    var jq = document.getElementById('script');
-    jq.type = 'text/javascript';
-    jq.
+    var jq = document.createElement('script');
+    jq.setAttribute('type', 'text/javascript');
+    jq.setAttribute('src', 'http://code.jquery.com/jquery-latest.min.js');
+    document.head.appendChild(jq);
     
     var container = document.getElementById('yt-masthead-user');
     this.dimmerButton = document.createElement('button');

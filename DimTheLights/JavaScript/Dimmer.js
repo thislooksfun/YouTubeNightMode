@@ -12,13 +12,16 @@ dimmer.init = function()
       return;
     }
     
+    var jq = document.getElementById('script');
+    jq.type = 
+    
     var container = document.getElementById('yt-masthead-user');
     this.dimmerButton = document.createElement('button');
-    this.dimmerButton.setAttribute('id', 'dimmer');
-    this.dimmerButton.setAttribute('onClick', 'dimmer.toggle()');
+    this.dimmerButton.id = 'dimmer';
+    this.dimmerButton.onClick = 'dimmer.toggle()';
     this.dimmerButton.className = 'yt-uix-button yt-uix-button-default yt-uix-button-size-default tlf-button ' + ((container.firstChild.className.search(/\btlf-button\b/) == -1) ? "tlf-button-first" : "");
-    this.dimmerButton.setAttribute('style', 'position: relative; right: ' + ((container.firstChild.className.search(/\btlf-button\b/) == -1) ? "5px" : "3px"));
     this.dimmerButton.innerHTML = 'Dim';
+    this.dimmerButton.setAttribute('style', 'position: relative; right: ' + ((container.firstChild.className.search(/\btlf-button\b/) == -1) ? "5px" : "3px"));
     container.insertBefore(this.dimmerButton, container.firstChild);
     
     this.initDivs();
@@ -44,32 +47,32 @@ dimmer.init = function()
 dimmer.initDivs = function()
 {
   this.divContainer = document.createElement('div');
-  this.divContainer.setAttribute('id', 'dimmerDivContainer');
+  this.divContainer.id = 'dimmerDivContainer';
   this.divContainer.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; opacity: 0.5; position: absolute');
   document.body.appendChild(this.divContainer);
   
   this.div1 = document.createElement('div');
-  this.div1.setAttribute('id', 'dimmerDiv1');
+  this.div1.id = 'dimmerDiv1';
   this.div1.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; position: absolute');
   this.divContainer.appendChild(this.div1);
   
   this.div2 = document.createElement('div');
-  this.div2.setAttribute('id', 'dimmerDiv2');
+  this.div2.id = 'dimmerDiv2';
   this.div2.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; position: absolute');
   this.divContainer.appendChild(this.div2);
   
   this.div3 = document.createElement('div');
-  this.div3.setAttribute('id', 'dimmerDiv3');
+  this.div3.id = 'dimmerDiv3';
   this.div3.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; position: absolute');
   this.divContainer.appendChild(this.div3);
   
   this.div4 = document.createElement('div');
-  this.div4.setAttribute('id', 'dimmerDiv4');
+  this.div4.id = 'dimmerDiv4';
   this.div4.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none;; position: absolute');
   this.divContainer.appendChild(this.div4);
   
   this.divHeader = document.createElement('div');
-  this.divHeader.setAttribute('id', 'dimmerDivHeader');
+  this.divHeader.id = 'dimmerDivHeader';
   this.divHeader.setAttribute('style', 'background: #000; z-index: 2147483647; pointer-events: none; position: fixed;');
   this.divContainer.appendChild(this.divHeader);
   

@@ -236,8 +236,4 @@ function getDocWidth() {
     );
 }
 
-var jq = document.createElement('script');
-jq.setAttribute('type', 'text/javascript');
-jq.setAttribute('src', 'http://code.jquery.com/jquery-latest.min.js');
-document.head.appendChild(jq);
-setTimeout(dimmer.init, 20);
+dimmer.init();

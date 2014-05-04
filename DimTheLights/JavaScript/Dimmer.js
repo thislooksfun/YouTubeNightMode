@@ -39,6 +39,17 @@ dimmer.init = function()
     this.divHeader = document.getElementById('dimmerDivHeader');
   }
   
+  function fixDiv() {
+    var $cache = $('#divBottom');
+    var top = 50;
+    if ($(window).scrollTop() > (dimmer.topPos - top)) {
+      $cache.css({'position': 'fixed', 'top': top + 'px'});
+    } else {
+      $cache.css({'position': 'absolute', 'top': dimmer.topPos + 'px'});
+    }
+  };
+  $(window).scroll(fixDiv);
+  
   this.topPos = $('#divBottom').offset().top;
 }
 
@@ -224,23 +235,6 @@ function getDocWidth() {
         D.body.clientWidth, D.documentElement.clientWidth
     );
 }
-
-var fixDiv = function () {
-    var $cache = $('#divBottom');
-    var top = 50;
-    if ($(window).scrollTop() > (dimmer.topPos - top)) {
-        $cache.css({
-            'position': 'fixed',
-                'top': top + 'px'
-        });
-    } else {
-        $cache.css({
-            'position': 'absolute',
-                'top': dimmer.topPos + 'px'
-        });
-    }
-};
-$(window).scroll(fixDiv);
 
 var jq = document.createElement('script');
 jq.setAttribute('type', 'text/javascript');

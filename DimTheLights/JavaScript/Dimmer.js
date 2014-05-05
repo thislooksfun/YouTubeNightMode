@@ -155,6 +155,8 @@ dimmer.checkOverlays = function()
       }
     }
     dimmer.frameCount = frames.length;
+  } else {
+    alert(dimmer.frameCount);
   }
 }
 

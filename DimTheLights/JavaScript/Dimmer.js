@@ -38,6 +38,9 @@ dimmer.init = function()
     this.divHeader = document.getElementById('dimmerDivHeader');
   }
   
+  this.uploader = (document.getElementsByClassName("yt-user-name")[0]).innerHTML;
+  alert(this.uploader);
+  
   function fixDiv() {
     var $cache = $('#dimmerDivBottom');
     var top = 50;
@@ -136,6 +139,12 @@ dimmer.checkSize = function()
     dimmer.positionDivs();
     dimmer.oldHeight = getDocHeight();
   }
+}
+
+dimmer.checkOverlays = function()
+{
+  var uploader = (document.getElementsByClassName("yt-user-name")[0]).innerHTML;
+  alert(uploader);
 }
 
 function hasClass(element, className) {

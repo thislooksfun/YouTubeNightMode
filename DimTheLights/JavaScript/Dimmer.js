@@ -150,6 +150,8 @@ dimmer.checkOverlays = function()
     for (var i = 0; i < frames.length; i++) {
       if (frames[i].parentNode.style.zIndex == 2000000000) {
         alert('Found it!');
+      } else {
+        alert(frames[i].parentNode.style.zIndex);
       }
     }
     dimmer.frameCount = frames.length;

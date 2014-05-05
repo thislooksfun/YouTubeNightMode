@@ -5,8 +5,6 @@ dimmer.init = function()
 {
   if (document.getElementById('dimmer') == null) {
     
-    alert(getDocHeight() + ", " + getDocWidth());
-    
     if (!this.isVideo()) {
       alert("This isn't a video! Please open a video and try again.");
       return;
@@ -39,7 +37,6 @@ dimmer.init = function()
   }
   
   this.uploader = (document.getElementsByClassName("yt-user-name")[0]).innerHTML;
-  alert(this.uploader);
   
   function fixDiv() {
     var $cache = $('#dimmerDivBottom');

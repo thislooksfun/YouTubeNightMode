@@ -24,8 +24,7 @@ dimmer.init = function()
     this.initDivs();
     
     this.checkSize();
-    //window.setInterval(this.checkSize, 40);
-    window.setInterval(this.checkSize, 10000);
+    window.setInterval(this.checkSize, 40);
     if (window.onresize != null) {
       this.oldResizeEvent = window.onresize;
       window.onresize = dimmer.onWindowResize;

@@ -147,7 +147,7 @@ dimmer.checkOverlays = function()
 {
   var frames = document.getElementsByTagName("iframe");
   if (frames.length > dimmer.frameCount) {
-    for (var i = 0; i < frames.length) {
+    for (var i = 0; i < frames.length; i++) {
       if (frames[i].parentNode.style.zIndex == 2000000000) {
         alert('Found it!');
       }

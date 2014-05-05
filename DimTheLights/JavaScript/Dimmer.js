@@ -61,12 +61,12 @@ dimmer.initDivs = function()
   
   this.divLeft = document.createElement('div');
   this.divLeft.id = 'dimmerDivLeft';
-  this.divLeft.setAttribute('style', 'background: #000; opacity: 0.8; z-index: 1999999998; pointer-events: none; position: absolute');
+  this.divLeft.setAttribute('style', 'background: #000; opacity: 0.8; z-index: 2147483647; pointer-events: none; position: fixed');
   document.body.appendChild(this.divLeft);
   
   this.divRight = document.createElement('div');
   this.divRight.id = 'dimmerDivRight';
-  this.divRight.setAttribute('style', 'background: #000; opacity: 0.8; z-index: 1999999998; pointer-events: none; position: absolute');
+  this.divRight.setAttribute('style', 'background: #000; opacity: 0.8; z-index: 2147483647; pointer-events: none; position: fixed');
   document.body.appendChild(this.divRight);
   
   this.divBottom = document.createElement('div');
@@ -87,25 +87,25 @@ dimmer.positionDivs = function()
   var playerRect = document.getElementById('player-api').getBoundingClientRect();
   var headerRect = document.getElementById('masthead-positioner').getBoundingClientRect();
   
-  this.divTop.style.left = "0px";
+  this.divTop.style.left = playerRect.left + "px";
   this.divTop.style.top = "0px";
   this.divTop.style.height = playerRect.top + "px";
-  this.divTop.style.width = "100%";
+  this.divTop.style.width = (player.right - player.left) + "px";
   
   this.divLeft.style.left = "0px";
-  this.divLeft.style.top = playerRect.top + "px";
-  this.divLeft.style.height = (playerRect.bottom - playerRect.top) + "px";
+  this.divLeft.style.top = headerRect.bottom + "px";
+  this.divLeft.style.height = (screen.availWidth - headerRect.bottom) + "px";
   this.divLeft.style.width = playerRect.left + "px";
 
   this.divRight.style.left = playerRect.right + "px";
-  this.divRight.style.top = playerRect.top + "px";
-  this.divRight.style.height = (playerRect.bottom - playerRect.top) + "px";
+  this.divRight.style.top = headerRect.bottom + "px";
+  this.divRight.style.height = (screen.availWidth - headerRect.bottom) + "px";
   this.divRight.style.width = (getDocWidth() - playerRect.right) + "px";
   
-  this.divBottom.style.left = "0px";
+  this.divBottom.style.left = playerRect.left + "px";
   this.divBottom.style.top = playerRect.bottom + "px";
-  this.divBottom.style.height = screen.availHeight + "px";
-  this.divBottom.style.width = "100%";
+  this.divBottom.style.height = (screen.availWidth - headerRect.bottom) + "px";
+  this.divBottom.style.width = (player.right - player.left) + "px";
   
   this.divHeader.style.left = "0px";
   this.divHeader.style.top = "0px";

@@ -139,12 +139,21 @@ dimmer.checkSize = function()
     dimmer.positionDivs();
     dimmer.oldHeight = getDocHeight();
   }
+  
+  dimmer.checkOverlays();
 }
 
 dimmer.checkOverlays = function()
 {
-  var uploader = (document.getElementsByClassName("yt-user-name")[0]).innerHTML;
-  alert(uploader);
+  var frames = document.getElementsByTagName("iframe");
+  if (frames.length > dimmer.frameCount) {
+    for (var i = 0; i < frames.length) {
+      if (frames[i].parentNode.style.zIndex == 2000000000) {
+        alert('Found it!');
+      }
+    }
+    dimmer.frameCount = frames.length;
+  }
 }
 
 function hasClass(element, className) {

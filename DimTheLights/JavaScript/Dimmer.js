@@ -33,7 +33,7 @@ dimmer.init = function()
     this.dimmerButton = document.getElementById('dimmer');
     this.divTop = document.getElementById('dimmerDivTop');
     this.divLeft = document.getElementById('dimmerDivLeft');
-    this.divLeft = document.getElementById('dimmerDivRight');
+    this.divRight = document.getElementById('dimmerDivRight');
     this.divBottom = document.getElementById('dimmerDivBottom');
     this.divHeader = document.getElementById('dimmerDivHeader');
   }

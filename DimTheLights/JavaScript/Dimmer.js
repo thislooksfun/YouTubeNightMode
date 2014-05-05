@@ -57,17 +57,17 @@ dimmer.initDivs = function()
 {
   this.divTop = document.createElement('div');
   this.divTop.id = 'dimmerDivTop';
-  this.divTop.setAttribute('style', 'background: #000; opacity: 0.8; z-index: 1999999999; pointer-events: none; position: absolute');
+  this.divTop.setAttribute('style', 'background: #000; opacity: 0.8; z-index: 1999999998; pointer-events: none; position: absolute');
   document.body.appendChild(this.divTop);
   
   this.divLeft = document.createElement('div');
   this.divLeft.id = 'dimmerDivLeft';
-  this.divLeft.setAttribute('style', 'background: #000; opacity: 0.8; z-index: 2147483647; pointer-events: none; position: absolute');
+  this.divLeft.setAttribute('style', 'background: #000; opacity: 0.8; z-index: 1999999998; pointer-events: none; position: absolute');
   document.body.appendChild(this.divLeft);
   
   this.divRight = document.createElement('div');
   this.divRight.id = 'dimmerDivRight';
-  this.divRight.setAttribute('style', 'background: #000; opacity: 0.8; z-index: 2147483647; pointer-events: none; position: absolute');
+  this.divRight.setAttribute('style', 'background: #000; opacity: 0.8; z-index: 1999999998; pointer-events: none; position: absolute');
   document.body.appendChild(this.divRight);
   
   this.divBottom = document.createElement('div');

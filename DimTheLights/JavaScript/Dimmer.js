@@ -13,8 +13,8 @@ dimmer.init = function()
     var container = document.getElementById('yt-masthead-user');
     this.dimmerButton = document.createElement('button');
     this.dimmerButton.id = 'dimmer';
-    this.dimmerButton.onClick = 'dimmer.toggle()';
-    this.dimmerButton.className = 'yt-uix-button yt-uix-button-default yt-uix-button-size-default tlf-button ' + ((container.firstChild.className.search(/\btlf-button\b/) == -1) ? "tlf-button-first" : "");
+    this.dimmerButton.onclick = 'dimmer.toggle()';
+    this.dimmerButton.className = 'yt-uix-button yt-uix-button-default yt-uix-button-size-default tlf-button' + ((container.firstChild.className.search(/\btlf-button\b/) == -1) ? " tlf-button-first" : "");
     this.dimmerButton.innerHTML = 'Dim';
     this.dimmerButton.setAttribute('style', 'position: relative; right: ' + ((container.firstChild.className.search(/\btlf-button\b/) == -1) ? "5px" : "3px"));
     container.insertBefore(this.dimmerButton, container.firstChild);
@@ -72,7 +72,7 @@ dimmer.initDivs = function()
   
   this.divBottom = document.createElement('div');
   this.divBottom.id = 'dimmerDivBottom';
-  this.divBottom.setAttribute('style', 'background: #000; opacity: 0.8; z-index: 2147483647; pointer-events: none;; position: absolute');
+  this.divBottom.setAttribute('style', 'background: #000; opacity: 0.8; z-index: 1999999998; pointer-events: none;; position: absolute');
   document.body.appendChild(this.divBottom);
   
   this.divHeader = document.createElement('div');
@@ -147,7 +147,10 @@ dimmer.checkOverlays = function()
   if (frames.length > dimmer.frameCount) {
     for (var i = 0; i < frames.length; i++) {
       if (frames[i].parentNode.style.zIndex == 2000000000) {
-        frames[i].parentNode.style.background = '#f00';
+        var popoutDiv = document.createElement('div');
+        popoutDiv.id = 'dimmerDivPopout';
+        popoutDiv.setAttribute('style', 'background: #000; opacity: 0.8; z-index: 2147483647; pointer-events: none; position: absolute');
+        frames[i].parentNode.appendChild((dimmer.divPopouts[dimmer.divPopouts.length] = popoutDiv));
       }
     }
     dimmer.frameCount = frames.length;
@@ -176,6 +179,9 @@ dimmer.setNight = function()
     this.divLeft.style.opacity = this.opacity/100;
     this.divRight.style.opacity = this.opacity/100;
     this.divBottom.style.opacity = this.opacity/100;
+    for (var i = 0; i < this.divPopouts.length; i++) {
+      this.divPopouts[i].style.opacity = this.opacity/100;
+    }
   } else {
     window.clearInterval(this.nightInterval)
     this.nightInterval = null;
@@ -192,6 +198,9 @@ dimmer.setDay = function()
     this.divLeft.style.opacity = this.opacity/100;
     this.divRight.style.opacity = this.opacity/100;
     this.divBottom.style.opacity = this.opacity/100;
+    for (var i = 0; i < this.divPopouts.length; i++) {
+      this.divPopouts[i].style.opacity = this.opacity/100;
+    }
   } else {
     window.clearInterval(this.dayInterval)
     this.dayInterval = null;

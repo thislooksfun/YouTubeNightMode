@@ -19,6 +19,8 @@ dimmer.init = function()
     this.dimmerButton.setAttribute('style', 'position: relative; right: ' + ((container.firstChild.className.search(/\btlf-button\b/) == -1) ? "5px" : "3px"));
     container.insertBefore(this.dimmerButton, container.firstChild);
     
+    this.divPopouts = {};
+    
     this.initDivs();
     
     this.checkSize();
@@ -34,6 +36,7 @@ dimmer.init = function()
     this.divRight = document.getElementById('dimmerDivRight');
     this.divBottom = document.getElementById('dimmerDivBottom');
     this.divHeader = document.getElementById('dimmerDivHeader');
+    this.divPopouts = document.getElementsByName('dimmerDivPopout');
   }
   
   this.uploader = (document.getElementsByClassName("yt-user-name")[0]).innerHTML;

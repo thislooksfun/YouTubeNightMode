@@ -13,8 +13,8 @@ dimmer.init = function()
     var container = document.getElementById('yt-masthead-user');
     this.dimmerButton = document.createElement('button');
     this.dimmerButton.id = 'dimmer';
-    this.dimmerButton.onclick = 'dimmer.toggle()';
-    this.dimmerButton.className = 'yt-uix-button yt-uix-button-default yt-uix-button-size-default tlf-button' + ((container.firstChild.className.search(/\btlf-button\b/) == -1) ? " tlf-button-first" : "");
+    this.dimmerButton.onclick = dimmer.toggle;
+    this.dimmerButton.className = 'yt-uix-button yt-uix-button-default yt-uix-button-size-default tlf-button';
     this.dimmerButton.innerHTML = 'Dim';
     this.dimmerButton.setAttribute('style', 'position: relative; right: ' + ((container.firstChild.className.search(/\btlf-button\b/) == -1) ? "5px" : "3px"));
     container.insertBefore(this.dimmerButton, container.firstChild);

@@ -161,7 +161,7 @@ dimmer.checkOverlays = function()
         if (!hasDiv) {
           var popoutDiv = document.createElement('div');
           popoutDiv.name = 'dimmerDivPopout';
-          popoutDiv.setAttribute('style', 'background: #000; opacity: 0.8; z-index: 2147483647; pointer-events: none; position: absolute');
+          popoutDiv.setAttribute('style', 'background: #000; opacity: 0.8; z-index: 2147483647; pointer-events: none; position: absolute; top: 0px; height: ' + frames[i].height + 'px; width: 100%; border-radius: 3px; -webkit-border-radius: 3px');
           frames[i].parentNode.appendChild((dimmer.divPopouts[dimmer.divPopouts.length] = popoutDiv));
         }
       }

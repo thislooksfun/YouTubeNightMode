@@ -173,6 +173,7 @@ dimmer.checkOverlays = function()
   for (var i = 0; i < divs.length; i++) {
     var div = $(divs[i]);
     div.css('height', div.prev().css('height'));
+    console.log(i + ", " + div.css('height') + ", " + div.prev().css('height'));
   }
 }
 

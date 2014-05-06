@@ -1,8 +1,11 @@
 javascript:(
   function () {
-    var js = document.createElement('script');
-    js.setAttribute('type', 'text/javascript');
-    js.setAttribute('src', 'https://raw.githubusercontent.com/thislooksfun/YouTubeNightMode/master/NightMode/JavaScript/NightMode.js');
-    document.head.appendChild(js);
+    if (document.getElementById('nightModeScript') == null) {
+      var js = document.createElement('script');
+      js.setAttribute('type', 'text/javascript');
+      jq.setAttribute('id', 'nightModeScript');
+      js.setAttribute('src', 'https://raw.githubusercontent.com/thislooksfun/YouTubeNightMode/master/NightMode/JavaScript/NightMode.js');
+      document.head.appendChild(js);
+    }
  }()
 );

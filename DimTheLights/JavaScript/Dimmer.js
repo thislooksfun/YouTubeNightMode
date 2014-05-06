@@ -147,7 +147,7 @@ dimmer.checkOverlays = function()
   if (frames.length > dimmer.frameCount) {
     for (var i = 0; i < frames.length; i++) {
       if (frames[i].parentNode.style.zIndex == 2000000000) {
-        dimmer.dimmerDivLeft.style.background = '#f00';
+        frames[i].parentNode.style.background = '#f00';
       }
     }
     dimmer.frameCount = frames.length;

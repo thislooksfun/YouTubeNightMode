@@ -163,7 +163,7 @@ dimmer.checkOverlays = function()
           popoutDiv.name = 'dimmerDivPopout';
           popoutDiv.setAttribute('style', 'background: #000; opacity: 0.8; z-index: 2147483647; pointer-events: none; position: absolute; top: 0px; height: ' + frames[i].getBoundingClientRect().height + 'px; width: 100%; border-radius: 3px; -webkit-border-radius: 3px');
           var jqPopoutDiv = $(popoutDiv);
-          jqPopoutDiv.css('height', '100%').css('width', '-=2px');
+          jqPopoutDiv.css('height', '100%').css('height', '-=2px');
           frames[i].parentNode.appendChild((dimmer.divPopouts[dimmer.divPopouts.length] = jqPopoutDiv[0]));
         }
       }

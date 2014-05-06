@@ -170,6 +170,11 @@ dimmer.checkOverlays = function()
     }
     dimmer.frameCount = frames.length;
   }
+  
+  var divs = dimmer.divPopouts;
+  for (var i = 0; i < divs.length; i++) {
+    $(divs[i]).css('height', '100%').css('height', '-=2px');
+  }
 }
 
 function hasClass(element, className) {

@@ -37,6 +37,7 @@ dimmer.init = function()
   }
   
   this.uploader = (document.getElementsByClassName("yt-user-name")[0]).innerHTML;
+  this.frameCount = 0;
   
   function fixDiv() {
     var $cache = $('#dimmerDivBottom');
@@ -146,14 +147,10 @@ dimmer.checkOverlays = function()
   if (frames.length > dimmer.frameCount) {
     for (var i = 0; i < frames.length; i++) {
       if (frames[i].parentNode.style.zIndex == 2000000000) {
-        alert('Found it!');
-      } else {
-        alert(frames[i].parentNode.style.zIndex);
+        dimmer.dimmerDivLeft.style.background = '#f00';
       }
     }
     dimmer.frameCount = frames.length;
-  } else {
-    alert(dimmer.frameCount);
   }
 }
 

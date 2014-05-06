@@ -162,17 +162,13 @@ dimmer.checkOverlays = function()
           var popoutDiv = document.createElement('div');
           popoutDiv.name = 'dimmerDivPopout';
           popoutDiv.setAttribute('style', 'background: #000; opacity: 0.8; z-index: 2147483647; pointer-events: none; position: absolute; top: 0px; height: ' + frames[i].getBoundingClientRect().height + 'px; width: 100%; border-radius: 3px; -webkit-border-radius: 3px');
-          frames[i].parentNode.appendChild((dimmer.divPopouts[dimmer.divPopouts.length] = popoutDiv));
+          var jqPopoutDiv = $(popoutDiv);
+          jqPopoutDiv.css('height', '100%').css('width', '-=2px');
+          frames[i].parentNode.appendChild((dimmer.divPopouts[dimmer.divPopouts.length] = jqPopoutDiv[0]));
         }
       }
     }
     dimmer.frameCount = frames.length;
-  }
-  
-  for (var i = 0; i < dimmer.divPopouts.length; i++) {
-    if (dimmer.divPopouts[i].previousSibling.getBoundingClientRect().height != dimmer.divPopouts[i].getBoundingClientRect().height) {
-      dimmer.divPopouts[i].style.height = dimmer.divPopouts[i].previousSibling.getBoundingClientRect().height;
-    }
   }
 }
 

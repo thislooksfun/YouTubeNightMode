@@ -168,6 +168,12 @@ dimmer.checkOverlays = function()
     }
     dimmer.frameCount = frames.length;
   }
+  
+  for (var i = 0; i < dimmer.divPopouts.length; i++) {
+    if (dimmer.divPopouts[i].previousSibling.getBoundingClientRect().height != dimmer.divPopouts[i].getBoundingClientRect().height) {
+      dimmer.divPopouts[i].style.height = dimmer.divPopouts[i].previousSibling.getBoundingClientRect().height;
+    }
+  }
 }
 
 function hasClass(element, className) {

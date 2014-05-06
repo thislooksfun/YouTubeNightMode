@@ -150,7 +150,15 @@ dimmer.checkOverlays = function()
   if (frames.length > dimmer.frameCount) {
     for (var i = 0; i < frames.length; i++) {
       if (frames[i].parentNode.style.zIndex == 2000000000) {
-        if (frames[i].parentNode.getElementsByName('dimmerDivPopout')[0] == null) {
+        var divs = frames[i].parentNode.getElementsByTagName('div');
+        var hasDiv = false;
+        for (var j = 0; j < divs.length; j++) {
+          if (divs[j].name == 'dimmerDivPopout') {
+            hasDiv = true;
+            break;
+          }
+        }
+        if (!hasDiv) {
           var popoutDiv = document.createElement('div');
           popoutDiv.name = 'dimmerDivPopout';
           popoutDiv.setAttribute('style', 'background: #000; opacity: 0.8; z-index: 2147483647; pointer-events: none; position: absolute');

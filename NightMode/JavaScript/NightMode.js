@@ -15,14 +15,21 @@ nightMode.init = function()
     this.pageElements[eleNum++] = {'element': document.getElementById('appbar-guide-button'),   'background': {'day': '', 'night': '#070707'}};
     this.pageElements[eleNum++] = {'element': document.getElementById('masthead-search-term'),  'text': {'day': '#000', 'night': '#fff'}};
     
-    var container = document.getElementById('yt-masthead-user');
+    var container = document.getElementById('tlf-button-container');
+    if (container == null) {
+      container = document.createElement('span');
+      container.id = 'tlf-button-container';
+      container.className = 'yt-uix-button-group';
+      container.setAttribute('style', 'position: relative; right: 5px');
+      document.getElementById('yt-masthead-user').insertBefore(container, container.firstChild);
+    }
     this.nightButton = document.createElement('button');
     this.nightButton.setAttribute('id', 'nightButton');
     this.nightButton.setAttribute('onClick', 'nightMode.toggle()');
     this.nightButton.className = 'yt-uix-button yt-uix-button-default yt-uix-button-size-default tlf-button ' + ((container.firstChild.className.search(/\btlf-button\b/) == -1) ? "tlf-button-first" : "");
     this.nightButton.setAttribute('style', 'position: relative; right: ' + ((container.firstChild.className.search(/\btlf-button\b/) == -1) ? "5px" : "3px"));
     this.nightButton.innerHTML = 'Night Mode';
-    container.insertBefore(this.nightButton, container.firstChild);
+    container.appendChild(this.dimmerButton);
     
     this.isNight = false;
   } else {

@@ -211,6 +211,8 @@ dimmer.checkIsVideo = function()
 
 dimmer.setNight = function()
 {
+  console.log("-----");
+  console.log(this.nightInterval);
   if (this.opacity < 80)
   {
     this.opacity = this.opacity + 1;
@@ -226,10 +228,15 @@ dimmer.setNight = function()
     this.nightInterval = null;
     this.isNight = true;
   }
+  console.log(this.nightInterval);
+  console.log(this.opacity);
+  console.log("-----");
 }
 
 dimmer.setDay = function()
 {
+  console.log("-----");
+  console.log(this.dayInterval);
   if (this.opacity > 0)
   {
     this.opacity = this.opacity - 1;
@@ -245,6 +252,10 @@ dimmer.setDay = function()
     this.dayInterval = null;
     this.isNight = false;
   }
+  console.log(this.dayInterval);
+  console.log(this.opacity);
+  console.log("-----");
+}
 }
 
 dimmer.setState = function(state)

@@ -33,7 +33,6 @@ dimmer.init = function()
     
     $(document).keydown(function(event) {
       if (event.keyCode == 27 && this.isNight) {
-        console.log('Escaped!');
         this.setState("day");
       }
     });
@@ -175,8 +174,6 @@ dimmer.checkOverlays = function()
           popoutDiv.name = 'dimmerDivPopout';
           popoutDiv.setAttribute('style', 'background: #000; opacity:' + (dimmer.opacity/100) + '; z-index: 2147483647; pointer-events: none; position: absolute; top: 0px; width: 100%; border-radius: 3px; -webkit-border-radius: 3px');
           frames[i].parentNode.appendChild((dimmer.divPopouts[dimmer.divPopouts.length] = popoutDiv));
-          console.log("Array is: " + dimmer.divPopouts);
-          console.log("Length is: " + dimmer.divPopouts.length);
         }
       }
     }
@@ -187,7 +184,6 @@ dimmer.checkOverlays = function()
   for (var i = 0; i < divs.length; i++) {
     var div = $(divs[i]);
     div.css('height', div.prev().css('height'));
-    console.log(i + ", " + div.css('height') + ", " + div.prev().css('height'));
   }
 }
 
@@ -205,15 +201,13 @@ dimmer.checkIsVideo = function()
       return false;
     }
   } else {
-    confirm(document.location.host + " is an unknown site. Please use YouTube.com");
+    alert(document.location.host + " is an unknown site. Please use YouTube.com");
     return false;
   }
 }
 
 dimmer.setNight = function()
 {
-  console.log("-----");
-  console.log(this.nightInterval);
   if (this.opacity < 80)
   {
     this.opacity = this.opacity + 1;
@@ -229,15 +223,10 @@ dimmer.setNight = function()
     this.nightInterval = null;
     this.isNight = true;
   }
-  console.log(this.nightInterval);
-  console.log(this.opacity);
-  console.log("-----");
 }
 
 dimmer.setDay = function()
 {
-  console.log("-----");
-  console.log(this.dayInterval);
   if (this.opacity > 0)
   {
     this.opacity = this.opacity - 1;
@@ -253,9 +242,6 @@ dimmer.setDay = function()
     this.dayInterval = null;
     this.isNight = false;
   }
-  console.log(this.dayInterval);
-  console.log(this.opacity);
-  console.log("-----");
 }
 
 dimmer.setState = function(state)
@@ -270,7 +256,6 @@ dimmer.setState = function(state)
     if (this.dayInterval == null) {
       this.dayInterval = window.setInterval(function() { dimmer.setDay(); }, 50);
       dimmer.setDay();
-      console.log("Day interval started!");
     }
     this.dimmerButton.innerHTML = "Dim"
   }
@@ -284,15 +269,10 @@ dimmer.setState = function(state)
     if (this.nightInterval == null) {
       this.nightInterval = window.setInterval(function() { dimmer.setNight(); }, 50);
       dimmer.setNight();
-      console.log("Night interval started!");
     }
     
     this.dimmerButton.innerHTML = "Brighten"
   }
-  
-  console.log(this.nightInterval);
-  console.log(this.dayInterval);
-  console.log(state);
 }
 
 dimmer.toggle = function()

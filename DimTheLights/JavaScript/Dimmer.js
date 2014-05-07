@@ -64,6 +64,8 @@ dimmer.init = function()
   
   this.topPos = $('#dimmerDivBottom').offset().top;
   
+  document.getElementById('appbar-settings-menu').style.zIndex = 2147483646;
+  
   this.setState("night");
 }
 

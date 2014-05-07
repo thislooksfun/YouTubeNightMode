@@ -207,7 +207,7 @@ dimmer.checkIsVideo = function()
 
 dimmer.setNight = function()
 {
-  if (this.opacity < 80)
+  if (this.opacity < 85)
   {
     this.opacity = this.opacity + 1;
     this.divTop.style.opacity = this.opacity/100;

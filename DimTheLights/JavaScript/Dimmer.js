@@ -153,6 +153,11 @@ dimmer.checkSize = function()
     dimmer.positionDivs();
     dimmer.oldHeight = getDocHeight();
   }
+  if (dimmer.oldWidth != getDocWidth())
+  {
+    dimmer.positionDivs();
+    dimmer.oldWidth = getDocHeight();
+  }
   
   dimmer.checkOverlays();
 }

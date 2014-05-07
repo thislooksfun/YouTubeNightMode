@@ -3,12 +3,11 @@ window.dimmer = {};
 //Functions
 dimmer.init = function()
 {
+  if (!this.checkIsVideo()) {
+    return;
+  }
+  
   if (document.getElementById('dimmer') == null) {
-    
-    if (!this.isVideo()) {
-      alert("This isn't a video! Please open a video and try again.");
-      return;
-    }
     
     var container = document.getElementById('yt-masthead-user');
     this.dimmerButton = document.createElement('button');
@@ -182,11 +181,17 @@ function hasClass(element, className) {
     return element.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(element.className);
 }
 
-dimmer.isVideo = function()
+dimmer.checkIsVideo = function()
 {
-  if (document.getElementById('player')) {
-    return true;
+  if (document.location.host == "youtube.com") {
+    if (document.getElementById('player')) {
+      return true;
+    } else {
+      alert("This isn't a video! Please open a video and try again.");
+      return false;
+    }
   } else {
+    alert(document.location.host + " is an unknown site. Please use <a href='http://youtube.com'>YouTube.com</a>");
     return false;
   }
 }

@@ -29,9 +29,10 @@ dimmer.init = function()
       window.onresize = dimmer.onWindowResize;
     }
     
-    $(document).keypress(function(event) {
+    $(document).keydown(function(event) {
       if (event.keyCode == 27) {
         console.log('Escaped!');
+        console.log(document.activeElement);
       }
     });
   } else {

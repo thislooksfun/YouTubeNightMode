@@ -209,41 +209,45 @@ dimmer.checkIsVideo = function()
 
 dimmer.setNight = function()
 {
-  if (this.opacity < 85)
+  if (this.opacity >= 85)
   {
-    this.opacity = this.opacity + 1;
-    this.divTop.style.opacity = this.opacity/100;
-    this.divLeft.style.opacity = this.opacity/100;
-    this.divRight.style.opacity = this.opacity/100;
-    this.divBottom.style.opacity = this.opacity/100;
-    this.divHeader.style.opacity = this.opacity/100;
-    for (var i = 0; i < this.divPopouts.length; i++) {
-      this.divPopouts[i].style.opacity = this.opacity/100;
-    }
-  } else {
+    this.opacity = 85;
     window.clearInterval(this.nightInterval)
     this.nightInterval = null;
     this.isNight = true;
+  } else {
+    this.opacity = this.opacity + 2;
+  }
+  
+  this.divTop.style.opacity = this.opacity/100;
+  this.divLeft.style.opacity = this.opacity/100;
+  this.divRight.style.opacity = this.opacity/100;
+  this.divBottom.style.opacity = this.opacity/100;
+  this.divHeader.style.opacity = this.opacity/100;
+  for (var i = 0; i < this.divPopouts.length; i++) {
+    this.divPopouts[i].style.opacity = this.opacity/100;
   }
 }
 
 dimmer.setDay = function()
 {
-  if (this.opacity > 0)
+  if (this.opacity <= 0)
   {
-    this.opacity = this.opacity - 1;
-    this.divTop.style.opacity = this.opacity/100;
-    this.divLeft.style.opacity = this.opacity/100;
-    this.divRight.style.opacity = this.opacity/100;
-    this.divBottom.style.opacity = this.opacity/100;
-    this.divHeader.style.opacity = this.opacity/100;
-    for (var i = 0; i < this.divPopouts.length; i++) {
-      this.divPopouts[i].style.opacity = this.opacity/100;
-    }
-  } else {
+    this.opacity = 0;
     window.clearInterval(this.dayInterval)
     this.dayInterval = null;
     this.isNight = false;
+  } else {
+    this.opacity = this.opacity - 2;
+  }
+  
+  this.divTop.style.opacity = this.opacity/100;
+  this.divLeft.style.opacity = this.opacity/100;
+  this.divRight.style.opacity = this.opacity/100;
+  this.divBottom.style.opacity = this.opacity/100;
+  this.divHeader.style.opacity = this.opacity/100;
+  for (var i = 0; i < this.divPopouts.length; i++) {
+    this.divPopouts[i].style.opacity = this.opacity/100;
   }
 }
 

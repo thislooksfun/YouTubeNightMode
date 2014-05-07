@@ -256,7 +256,6 @@ dimmer.setDay = function()
   console.log(this.opacity);
   console.log("-----");
 }
-}
 
 dimmer.setState = function(state)
 {

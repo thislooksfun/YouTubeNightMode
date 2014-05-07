@@ -14,7 +14,7 @@ dimmer.init = function()
     this.dimmerButton.id = 'dimmer';
     this.dimmerButton.onclick = dimmer.toggle;
     this.dimmerButton.className = 'yt-uix-button yt-uix-button-default yt-uix-button-size-default tlf-button';
-    this.dimmerButton.innerHTML = 'Brighten';
+    this.dimmerButton.innerHTML = 'Dim';
     this.dimmerButton.setAttribute('style', 'position: relative; right: ' + ((container.firstChild.className.search(/\btlf-button\b/) == -1) ? "5px" : "3px"));
     container.insertBefore(this.dimmerButton, container.firstChild);
     
@@ -268,11 +268,11 @@ dimmer.setState = function(state)
     }
     
     if (this.dayInterval == null) {
-      this.dayInterval = window.setInterval(function() { dimmer.setDay(); }, 100);
+      this.dayInterval = window.setInterval(function() { dimmer.setDay(); }, 50);
       dimmer.setDay();
       console.log("Day interval started!");
     }
-    this.dimmerButton.innerHTML = "Brighten"
+    this.dimmerButton.innerHTML = "Dim"
   }
   else if (state.toLowerCase() == "night")
   {
@@ -282,12 +282,12 @@ dimmer.setState = function(state)
     }
     
     if (this.nightInterval == null) {
-      this.nightInterval = window.setInterval(function() { dimmer.setNight(); }, 100);
+      this.nightInterval = window.setInterval(function() { dimmer.setNight(); }, 50);
       dimmer.setNight();
       console.log("Night interval started!");
     }
     
-    this.dimmerButton.innerHTML = "Dim"
+    this.dimmerButton.innerHTML = "Brighten"
   }
   
   console.log(this.nightInterval);

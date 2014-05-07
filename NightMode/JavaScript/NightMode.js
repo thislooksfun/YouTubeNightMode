@@ -28,7 +28,7 @@ nightMode.init = function()
     this.nightButton.onclick = function() { nightMode.toggle(); };
     this.nightButton.className = 'yt-uix-button yt-uix-button-default yt-uix-button-size-default';
     this.nightButton.innerHTML = 'Night Mode';
-    container.appendChild(this.dimmerButton);
+    container.appendChild(this.nightButton);
     
     this.isNight = false;
   } else {

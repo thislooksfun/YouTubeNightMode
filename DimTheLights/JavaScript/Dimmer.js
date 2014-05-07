@@ -30,9 +30,8 @@ dimmer.init = function()
     }
     
     this.isNight = true;
-    console.log(this.dimmerButton.innerHTML);
     
-    $(document).keyup(function(event) {
+    $(document).keydown(function(event) {
       if (event.keyCode == 27 && this.isNight) {
         console.log('Escaped!');
         this.toggle("day");

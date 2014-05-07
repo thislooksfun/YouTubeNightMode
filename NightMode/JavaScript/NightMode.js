@@ -25,9 +25,8 @@ nightMode.init = function()
     }
     this.nightButton = document.createElement('button');
     this.nightButton.setAttribute('id', 'nightButton');
-    this.nightButton.setAttribute('onClick', 'nightMode.toggle()');
-    this.nightButton.className = 'yt-uix-button yt-uix-button-default yt-uix-button-size-default tlf-button ' + ((container.firstChild.className.search(/\btlf-button\b/) == -1) ? "tlf-button-first" : "");
-    this.nightButton.setAttribute('style', 'position: relative; right: ' + ((container.firstChild.className.search(/\btlf-button\b/) == -1) ? "5px" : "3px"));
+    this.nightButton.onclick = function() { nightMode.toggle(); };
+    this.nightButton.className = 'yt-uix-button yt-uix-button-default yt-uix-button-size-default';
     this.nightButton.innerHTML = 'Night Mode';
     container.appendChild(this.dimmerButton);
     

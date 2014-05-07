@@ -260,7 +260,6 @@ dimmer.setState = function(state)
       this.dayInterval = window.setInterval(function() { dimmer.setDay(); }, 100);
       dimmer.setDay();
     }
-    
     this.dimmerButton.innerHTML = "Brighten"
   }
   else if (state.toLowerCase() == "night")
@@ -277,6 +276,9 @@ dimmer.setState = function(state)
     
     this.dimmerButton.innerHTML = "Dim"
   }
+  
+  console.log(this.nightInterval);
+  console.log(this.dayInterval);
 }
 
 dimmer.toggle = function()

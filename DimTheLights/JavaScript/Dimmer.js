@@ -29,10 +29,13 @@ dimmer.init = function()
       window.onresize = dimmer.onWindowResize;
     }
     
-    $(document).keydown(function(event) {
-      if (event.keyCode == 27) {
+    this.isNight = true;
+    console.log(this.dimmerButton.innerHTML);
+    
+    $(document).keyup(function(event) {
+      if (event.keyCode == 27 && this.isNight) {
         console.log('Escaped!');
-        console.log(document.activeElement);
+        this.toggle("day");
       }
     });
   } else {
@@ -43,6 +46,7 @@ dimmer.init = function()
     this.divBottom = document.getElementById('dimmerDivBottom');
     this.divHeader = document.getElementById('dimmerDivHeader');
     this.divPopouts = document.getElementsByName('dimmerDivPopout');
+    this.isNight = (this.dimmerButton.innerHTML == "Dim")
   }
   
   this.uploader = (document.getElementsByClassName("yt-user-name")[0]).innerHTML;
@@ -242,12 +246,12 @@ dimmer.setDay = function()
   }
 }
 
-dimmer.toggle = function()
+dimmer.toggle = function(state)
 {
   alert('This hasn\'t been implemented yet!');
   return;
   
-  if (this.isNight)
+  if ((state != null && state == "day") || this.isNight)
   {
     if (this.nightInterval != null) {
       window.clearInterval(this.nightInterval)

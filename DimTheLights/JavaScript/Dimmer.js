@@ -321,5 +321,5 @@ function installReqs() {
 
 if (!isInstalled()) {
   installReqs();
-  setTimeout(function() { dimmer.init(); }, 20);
+  setTimeout(function() { dimmer.init(); }, 50);
 }

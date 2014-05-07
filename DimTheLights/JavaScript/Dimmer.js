@@ -20,7 +20,7 @@ dimmer.init = function()
 
     this.dimmerButton = document.createElement('button');
     this.dimmerButton.id = 'dimmer';
-    this.dimmerButton.onclick = dimmer.toggle;
+    this.dimmerButton.onclick = function() { dimmer.toggle(); };
     this.dimmerButton.className = 'yt-uix-button yt-uix-button-default yt-uix-button-size-default';
     this.dimmerButton.innerHTML = 'Dim';
     container.appendChild(this.dimmerButton);

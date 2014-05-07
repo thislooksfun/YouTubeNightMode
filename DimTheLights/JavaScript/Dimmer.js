@@ -297,13 +297,6 @@ function installReqs() {
     jq.setAttribute('src', 'http://code.jquery.com/jquery-latest.min.js');
     document.head.appendChild(jq);
   }
-  if (document.getElementById('jqueryUIScript') == null) {
-    var jq = document.createElement('script');
-    jq.setAttribute('type', 'text/javascript');
-    jq.setAttribute('id', 'jqueryUIScript');
-    jq.setAttribute('src', 'http://code.jquery.com/ui/1.10.4/jquery-ui.min.js');
-    document.head.appendChild(jq);
-  }
 }
 
 if (!isInstalled()) {

@@ -8,22 +8,12 @@ javascript:(
       document.head.appendChild(js);
     }
     
-    if (document.getElementById('jqueryScript') == null) {
-      var jq = document.createElement('script');
-      jq.setAttribute('type', 'text/javascript');
-      jq.setAttribute('id', 'jqueryScript');
-      jq.setAttribute('src', 'http://code.jquery.com/jquery-latest.min.js');
-      document.head.appendChild(jq);
-    }
-    
     if (document.getElementById('dimmerScript') == null) {
-      setTimeout(function() {
-        var js = document.createElement('script');
-        js.setAttribute('type', 'text/javascript');
-        js.setAttribute('id', 'dimmerScript');
-        js.setAttribute('src', 'https://raw.githubusercontent.com/thislooksfun/YouTubeNightMode/master/DimTheLights/JavaScript/Dimmer.js');
-        document.head.appendChild(js);
-      }, 20);
+      var js = document.createElement('script');
+      js.setAttribute('type', 'text/javascript');
+      js.setAttribute('id', 'dimmerScript');
+      js.setAttribute('src', 'https://raw.githubusercontent.com/thislooksfun/YouTubeNightMode/master/DimTheLights/JavaScript/Dimmer.js');
+      document.head.appendChild(js);
     }
  }()
 );

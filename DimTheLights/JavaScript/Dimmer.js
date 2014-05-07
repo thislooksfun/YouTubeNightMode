@@ -18,7 +18,7 @@ dimmer.init = function()
     this.dimmerButton.setAttribute('style', 'position: relative; right: ' + ((container.firstChild.className.search(/\btlf-button\b/) == -1) ? "5px" : "3px"));
     container.insertBefore(this.dimmerButton, container.firstChild);
     
-    this.divPopouts = {};
+    this.divPopouts = [];
     
     this.initDivs();
     

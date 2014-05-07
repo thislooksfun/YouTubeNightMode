@@ -247,9 +247,6 @@ dimmer.setDay = function()
 
 dimmer.toggle = function(state)
 {
-  alert('This hasn\'t been implemented yet!');
-  return;
-  
   if ((state != null && state == "day") || this.isNight)
   {
     if (this.nightInterval != null) {

@@ -34,7 +34,7 @@ dimmer.init = function()
     $(document).keydown(function(event) {
       if (event.keyCode == 27 && this.isNight) {
         console.log('Escaped!');
-        this.toggle("day");
+        this.setState("day");
       }
     });
   } else {
@@ -245,9 +245,9 @@ dimmer.setDay = function()
   }
 }
 
-dimmer.toggle = function(state)
+dimmer.setState = function(state)
 {
-  if ((state != null && state == "day") || this.isNight)
+  if (state.toLowerCase() == "day")
   {
     if (this.nightInterval != null) {
       window.clearInterval(this.nightInterval)
@@ -261,7 +261,7 @@ dimmer.toggle = function(state)
     
     this.dimmerButton.innerHTML = "Brighten"
   }
-  else
+  else if (state.toLowerCase() == "night")
   {
     if (this.dayInterval != null) {
       window.clearInterval(this.dayInterval)
@@ -275,6 +275,11 @@ dimmer.toggle = function(state)
     
     this.dimmerButton.innerHTML = "Dim"
   }
+}
+
+dimmer.toggle = function()
+{
+  dimmer.setState(dimmer.isNight ? "day" : "night")
 }
 
 function getDocHeight() {

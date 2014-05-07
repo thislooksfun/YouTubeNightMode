@@ -50,6 +50,7 @@ dimmer.init = function()
   
   this.uploader = (document.getElementsByClassName("yt-user-name")[0]).innerHTML;
   this.frameCount = 0;
+  this.opacity = 0;
   
   function fixDiv() {
     var $cache = $('#dimmerDivBottom');

@@ -286,7 +286,7 @@ function getDocWidth() {
 }
 
 function isInstalled() {
-  return (document.getElementById('dimmer') == null);
+  return !(document.getElementById('dimmer') == null);
 }
 function installReqs() {
   if (document.getElementById('jqueryScript') == null) {

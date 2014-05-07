@@ -162,7 +162,8 @@ dimmer.checkOverlays = function()
           popoutDiv.name = 'dimmerDivPopout';
           popoutDiv.setAttribute('style', 'background: #000; opacity: 0.8; z-index: 2147483647; pointer-events: none; position: absolute; top: 0px; width: 100%; border-radius: 3px; -webkit-border-radius: 3px');
           frames[i].parentNode.appendChild((dimmer.divPopouts[dimmer.divPopouts.length] = popoutDiv));
-          console.log("Length is :" + dimmer.divPopouts.length);
+          console.log("Array is: " + dimmer.divPopouts);
+          console.log("Length is: " + dimmer.divPopouts.length);
         }
       }
     }

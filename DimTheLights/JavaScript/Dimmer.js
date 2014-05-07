@@ -28,6 +28,12 @@ dimmer.init = function()
       this.oldResizeEvent = window.onresize;
       window.onresize = dimmer.onWindowResize;
     }
+    
+    $(document).keypress(function(event) {
+      if (event.keyCode == 27) {
+        console.log('Escaped!');
+      }
+    });
   } else {
     this.dimmerButton = document.getElementById('dimmer');
     this.divTop = document.getElementById('dimmerDivTop');
@@ -302,7 +308,5 @@ function installReqs() {
 
 if (!isInstalled()) {
   installReqs();
-  setTimeout(function() {
-      dimmer.init();
-    }, 5);
+  setTimeout(function() { dimmer.init(); }, 5);
 }

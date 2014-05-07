@@ -310,8 +310,15 @@ function installReqs() {
     document.head.appendChild(jq);
   }
 }
+function checkReqsInstalled() {
+  if (document.getElementById('jqueryScript') != null) {
+    dimmer.init();
+  } else {
+    setTimeout(function() { checkReqsInstalled(); }, 100);
+  }
+}
 
 if (!isInstalled()) {
   installReqs();
-  setTimeout(function() { dimmer.init(); }, 50);
+  setTimeout(function() { checkReqsInstalled(); }, 100);
 }

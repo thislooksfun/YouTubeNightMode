@@ -172,7 +172,7 @@ dimmer.checkOverlays = function()
         if (!hasDiv) {
           var popoutDiv = document.createElement('div');
           popoutDiv.name = 'dimmerDivPopout';
-          popoutDiv.setAttribute('style', 'background: #000; opacity: 0.8; z-index: 2147483647; pointer-events: none; position: absolute; top: 0px; width: 100%; border-radius: 3px; -webkit-border-radius: 3px');
+          popoutDiv.setAttribute('style', 'background: #000; opacity:' + (dimmer.opacity/100) + '; z-index: 2147483647; pointer-events: none; position: absolute; top: 0px; width: 100%; border-radius: 3px; -webkit-border-radius: 3px');
           frames[i].parentNode.appendChild((dimmer.divPopouts[dimmer.divPopouts.length] = popoutDiv));
           console.log("Array is: " + dimmer.divPopouts);
           console.log("Length is: " + dimmer.divPopouts.length);
@@ -257,7 +257,7 @@ dimmer.setState = function(state)
     }
     
     if (this.dayInterval == null) {
-      this.dayInterval = window.setInterval(dimmer.setDay, 100);
+      this.dayInterval = window.setInterval(function() { dimmer.setDay(); }, 100);
       dimmer.setDay();
     }
     
@@ -271,7 +271,7 @@ dimmer.setState = function(state)
     }
     
     if (this.nightInterval == null) {
-      this.nightInterval = window.setInterval(dimmer.setNight, 100);
+      this.nightInterval = window.setInterval(function() { dimmer.setNight(); }, 100);
       dimmer.setNight();
     }
     

@@ -32,7 +32,7 @@ dimmer.init = function()
     this.isNight = false;
     
     $(document).keydown(function(event) {
-      if (event.keyCode == 27 && this.isNight) {
+      if (event.keyCode == 27 && dimmer.isNight) {
         dimmer.setState("day");
       }
     });

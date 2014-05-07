@@ -201,8 +201,7 @@ dimmer.checkIsVideo = function()
       return false;
     }
   } else {
-    alert(document.location.host + " is an unknown site. Please use YouTube.com");
-    return false;
+    return confirm(document.location.host + " is an unknown site. Please use YouTube.com\nDo you wish to continue anyway?");
   }
 }
 

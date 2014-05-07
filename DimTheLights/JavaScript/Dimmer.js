@@ -214,6 +214,7 @@ dimmer.setNight = function()
     this.divLeft.style.opacity = this.opacity/100;
     this.divRight.style.opacity = this.opacity/100;
     this.divBottom.style.opacity = this.opacity/100;
+    this.divHeader.style.opacity = this.opacity/100;
     for (var i = 0; i < this.divPopouts.length; i++) {
       this.divPopouts[i].style.opacity = this.opacity/100;
     }
@@ -233,6 +234,7 @@ dimmer.setDay = function()
     this.divLeft.style.opacity = this.opacity/100;
     this.divRight.style.opacity = this.opacity/100;
     this.divBottom.style.opacity = this.opacity/100;
+    this.divHeader.style.opacity = this.opacity/100;
     for (var i = 0; i < this.divPopouts.length; i++) {
       this.divPopouts[i].style.opacity = this.opacity/100;
     }
@@ -253,7 +255,7 @@ dimmer.setState = function(state)
     }
     
     if (this.dayInterval == null) {
-      this.dayInterval = window.setInterval(function() { dimmer.setDay(); }, 50);
+      this.dayInterval = window.setInterval(function() { dimmer.setDay(); }, 25);
       dimmer.setDay();
     }
     this.dimmerButton.innerHTML = "Dim"
@@ -266,7 +268,7 @@ dimmer.setState = function(state)
     }
     
     if (this.nightInterval == null) {
-      this.nightInterval = window.setInterval(function() { dimmer.setNight(); }, 50);
+      this.nightInterval = window.setInterval(function() { dimmer.setNight(); }, 25);
       dimmer.setNight();
     }
     

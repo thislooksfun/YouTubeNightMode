@@ -255,7 +255,7 @@ dimmer.setState = function(state)
     }
     
     if (this.dayInterval == null) {
-      this.dayInterval = window.setInterval(function() { dimmer.setDay(); }, 25);
+      this.dayInterval = window.setInterval(function() { dimmer.setDay(); }, 10);
       dimmer.setDay();
     }
     this.dimmerButton.innerHTML = "Dim"
@@ -268,7 +268,7 @@ dimmer.setState = function(state)
     }
     
     if (this.nightInterval == null) {
-      this.nightInterval = window.setInterval(function() { dimmer.setNight(); }, 25);
+      this.nightInterval = window.setInterval(function() { dimmer.setNight(); }, 10);
       dimmer.setNight();
     }
     

@@ -183,7 +183,7 @@ function hasClass(element, className) {
 
 dimmer.checkIsVideo = function()
 {
-  if (document.location.host.toLowerCase().search(/\byoutube.com\b/) != -1) {
+  if (document.location.host.toLowerCase().search(/\byoutube\b/) != -1) {
     if (document.getElementById('player')) {
       return true;
     } else {
@@ -191,7 +191,8 @@ dimmer.checkIsVideo = function()
       return false;
     }
   } else {
-    return confirm(document.location.host + " is an unknown site. Please use YouTube.com");
+    confirm(document.location.host + " is an unknown site. Please use YouTube.com");
+    return false;
   }
 }
 

@@ -21,7 +21,8 @@ nightMode.init = function()
       container.id = 'tlf-button-container';
       container.className = 'yt-uix-button-group';
       container.setAttribute('style', 'position: relative; right: 5px');
-      document.getElementById('yt-masthead-user').insertBefore(container, container.firstChild);
+      var headUser = document.getElementById('yt-masthead-user');
+      headUser.insertBefore(container, headUser.firstChild);
     }
     this.nightButton = document.createElement('button');
     this.nightButton.setAttribute('id', 'nightButton');

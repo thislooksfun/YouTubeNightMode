@@ -7,16 +7,24 @@ dimmer.init = function()
     return;
   }
   
-  if (document.getElementById('dimmer') == null) {
-    
-    var container = document.getElementById('yt-masthead-user');
+  if (document.getElementById('dimmer') == null)
+  {
+    var container = document.getElementById('tlf-button-container');
+    if (container == null) {
+      container = document.createElement('span');
+      container.id = 'tlf-button-container';
+      container.className = 'yt-uix-button-group';
+      container.setAttribute('style', 'position: relative; right: 5px');
+      document.getElementById('yt-masthead-user').insertBefore(container, container.firstChild);
+    }
+
     this.dimmerButton = document.createElement('button');
     this.dimmerButton.id = 'dimmer';
     this.dimmerButton.onclick = dimmer.toggle;
     this.dimmerButton.className = 'yt-uix-button yt-uix-button-default yt-uix-button-size-default tlf-button';
     this.dimmerButton.innerHTML = 'Dim';
     this.dimmerButton.setAttribute('style', 'position: relative; right: ' + ((container.firstChild.className.search(/\btlf-button\b/) == -1) ? "5px" : "3px"));
-    container.insertBefore(this.dimmerButton, container.firstChild);
+    container.appendChild(this.dimmerButton);
     
     this.divPopouts = [];
     

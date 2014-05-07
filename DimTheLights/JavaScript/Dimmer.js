@@ -191,8 +191,7 @@ dimmer.checkIsVideo = function()
       return false;
     }
   } else {
-    alert(document.location.host + " is an unknown site. Please use YouTube.com");
-    return false;
+    return confirm(document.location.host + " is an unknown site. Please use YouTube.com");
   }
 }
 
@@ -286,4 +285,27 @@ function getDocWidth() {
     );
 }
 
-dimmer.init();
+function isInstalled() {
+  return (document.getElementById('dimmer') == null);
+}
+function installReqs() {
+  if (document.getElementById('jqueryScript') == null) {
+    var jq = document.createElement('script');
+    jq.setAttribute('type', 'text/javascript');
+    jq.setAttribute('id', 'jqueryScript');
+    jq.setAttribute('src', 'http://code.jquery.com/jquery-latest.min.js');
+    document.head.appendChild(jq);
+  }
+  if (document.getElementById('jqueryUIScript') == null) {
+    var jq = document.createElement('script');
+    jq.setAttribute('type', 'text/javascript');
+    jq.setAttribute('id', 'jqueryUIScript');
+    jq.setAttribute('src', 'http://code.jquery.com/ui/1.10.4/jquery-ui.min.js');
+    document.head.appendChild(jq);
+  }
+}
+
+if (!isInstalled()) {
+  installReqs();
+  setTimeout(dimmer.init, 5);
+}

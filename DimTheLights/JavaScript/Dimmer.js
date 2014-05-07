@@ -214,9 +214,9 @@ dimmer.checkIsVideo = function()
 
 dimmer.setNight = function()
 {
-  if (this.opacity >= 85)
+  if (this.opacity >= 90)
   {
-    this.opacity = 85;
+    this.opacity = 90;
     window.clearInterval(this.nightInterval)
     this.nightInterval = null;
     this.isNight = true;

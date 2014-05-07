@@ -29,7 +29,7 @@ dimmer.init = function()
       window.onresize = dimmer.onWindowResize;
     }
     
-    this.isNight = true;
+    this.isNight = false;
     
     $(document).keydown(function(event) {
       if (event.keyCode == 27 && this.isNight) {
@@ -63,6 +63,8 @@ dimmer.init = function()
   $(window).scroll(fixDiv);
   
   this.topPos = $('#dimmerDivBottom').offset().top;
+  
+  this.setState("night");
 }
 
 dimmer.initDivs = function()

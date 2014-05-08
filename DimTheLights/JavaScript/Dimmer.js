@@ -113,7 +113,7 @@ dimmer.initDivPos = function()
 {
   var $player = $('#player-api');
   var playerOffset = $player.offset();
-  var pBottom = ($(window).height() - $player.height()) - playerOffset.top;
+  var pBottom = playerOffset.top + $player.height();
   this.divBottom.style.top = pBottom + "px";
   
   this.divHeader.style.width = "100%";
@@ -126,20 +126,20 @@ dimmer.positionDivs = function()
   var $player = $('#player-api');
   var playerOffset = $player.offset();
   var pHeight = $player.height();
-  var pWidth = $player.width()
+  var pWidth = $player.width();
   var pTop = playerOffset.top;
   var pLeft = playerOffset.left;
-  var pBottom = ($(window).height() - pHeight) - pTop;
-  var pRight = ($(window).width() - pWidth) - pLeft;
+  var pBottom = pTop + pHeight;
+  var pRight = pLeft + pWidth;
   
   var $header = $('#masthead-positioner');
   var headerOffset = $header.offset();
   var hHeight = $header.height();
-  //var hWidth = $header.width()
+  var hWidth = $header.width(); //Unused
   var hTop = headerOffset.top;
   var hLeft = headerOffset.left;
-  var hBottom = ($(window).height() - hHeight) - hTop;
-  //var hRight = ($(window).width() - hWidth) - hLeft;
+  var hBottom = hTop + hHeight;
+  var hRight = hLeft + hWidth; //Unused
   
   this.divTop.style.left = pLeft + "px";
   this.divTop.style.top = hTop + "px";
@@ -165,7 +165,7 @@ dimmer.positionDivs = function()
   this.divHeader.style.height = hBottom + "px";
   
   if (!this.debugged) {
-    //console.log("pHeight = " + pHeight);
+    console.log("pHeight = " + pHeight);
     console.log("pWidth = " + pWidth);
     console.log("pLeft = " + pLeft);
     console.log("pRight = " + pRight);
@@ -173,9 +173,9 @@ dimmer.positionDivs = function()
     console.log("pBottom = " + pBottom);
     
     console.log("hHeight = " + hHeight);
-    //console.log("hWidth = " + hWidth);
+    console.log("hWidth = " + hWidth);
     console.log("hLeft = " + hLeft);
-    //console.log("hRight = " + hRight);
+    console.log("hRight = " + hRight);
     console.log("hTop = " + hTop);
     console.log("hBottom = " + hBottom);
     this.debugged = true;

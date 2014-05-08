@@ -201,8 +201,10 @@ dimmer.checkOverlays = function()
     }
     
     var results = document.getElementsByClassName("gssb_k")[0];
-    if (results != null && document.getElementById("dimmerDivResults") == null) {
+    if (results != null && dimmer.divResults.parentNode != results) {
       results.appendChild(dimmer.divResults);
+    } else {
+      console.log(dimmer.divResults.parentNode);
     }
     dimmer.frameCount = frames.length;
   }

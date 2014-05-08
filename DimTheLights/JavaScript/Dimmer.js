@@ -258,6 +258,7 @@ dimmer.setNight = function()
   this.divRight.style.opacity = this.opacity/100;
   this.divBottom.style.opacity = this.opacity/100;
   this.divHeader.style.opacity = this.opacity/100;
+  this.divMenu.style.opacity = this.opacity/100;
   for (var i = 0; i < this.divPopouts.length; i++) {
     this.divPopouts[i].style.opacity = this.opacity/100;
   }
@@ -280,6 +281,7 @@ dimmer.setDay = function()
   this.divRight.style.opacity = this.opacity/100;
   this.divBottom.style.opacity = this.opacity/100;
   this.divHeader.style.opacity = this.opacity/100;
+  this.divMenu.style.opacity = this.opacity/100;
   for (var i = 0; i < this.divPopouts.length; i++) {
     this.divPopouts[i].style.opacity = this.opacity/100;
   }

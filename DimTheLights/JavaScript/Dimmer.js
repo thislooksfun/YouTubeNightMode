@@ -144,8 +144,8 @@ dimmer.positionDivs = function()
   var menuRect = document.getElementById('appbar-settings-menu').getBoundingClientRect();
   this.divMenu.style.left = "-1px";
   this.divMenu.style.top = "-1px";
-  this.divMenu.style.height = (menuRect.height + 2) + "px";
-  this.divMenu.style.width = (menuRect.width + 2) + "px";
+  this.divMenu.style.height = menuRect.height + "px";
+  this.divMenu.style.width = menuRect.width + "px";
   
   this.topPos = $('#dimmerDivBottom').offset().top;
 }

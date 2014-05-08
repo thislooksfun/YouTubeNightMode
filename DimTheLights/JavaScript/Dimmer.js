@@ -107,7 +107,6 @@ dimmer.initDivs = function()
   this.divResults = document.createElement('div');
   this.divResults.id = 'dimmerDivResults';
   this.divResults.setAttribute('style', 'background: #000; opacity: 0.0; z-index: 2147483647; pointer-events: none; position: relative');
-  document.body.appendChild(this.divResults);
   
   this.positionDivs();
 }
@@ -202,7 +201,7 @@ dimmer.checkOverlays = function()
     }
     
     var results = document.getElementsByClassName("gssb_k")[0];
-    if (results != null) {
+    if (results != null && document.getElementById("dimmerDivResults") == null) {
       results.appendChild(dimmer.divResults);
     }
     dimmer.frameCount = frames.length;

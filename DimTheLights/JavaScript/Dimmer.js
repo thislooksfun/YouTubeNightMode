@@ -145,6 +145,20 @@ dimmer.positionDivs = function()
   this.divHeader.style.left = headerOffset.left + "px";
   this.divHeader.style.top = headerOffset.top + "px";
   this.divHeader.style.height = headerOffset.bottom + "px";
+  
+  if (!this.debugged) {
+    console.log("playerOffset = " + playerOffset);
+    console.log("playerOffset.left = " + playerOffset.left);
+    console.log("playerOffset.right = " + playerOffset.right);
+    console.log("playerOffset.top = " + playerOffset.top);
+    console.log("playerOffset.bottom = " + playerOffset.bottom);
+    
+    console.log("headerOffset = " + headerOffset);
+    console.log("headerOffset.left = " + headerOffset.left);
+    console.log("headerOffset.right = " + headerOffset.right);
+    console.log("headerOffset.top = " + headerOffset.top);
+    console.log("headerOffset.bottom = " + headerOffset.bottom);
+  }
 }
 
 dimmer.onWindowResize = function()

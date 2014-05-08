@@ -111,7 +111,10 @@ dimmer.initDivs = function()
 
 dimmer.initDivPos = function()
 {
-  this.divBottom.style.top = $('#player-api').offset().bottom + "px";
+  var $player = $('#player-api');
+  var playerOffset = $player.offset();
+  var pBottom = ($(window).height() - $player.height()) - playerOffset.top;
+  this.divBottom.style.top = pBottom + "px";
   
   this.divHeader.style.width = "100%";
   
@@ -120,44 +123,61 @@ dimmer.initDivPos = function()
 
 dimmer.positionDivs = function()
 {
-  var playerOffset = $('#player-api').offset();
-  var headerOffset = $('#masthead-positioner').offset();
+  var $player = $('#player-api');
+  var playerOffset = $player.offset();
+  var pHeight = $player.height();
+  var pWidth = $player.width()
+  var pTop = playerOffset.top;
+  var pLeft = playerOffset.left;
+  var pBottom = ($(window).height() - pHeight) - pTop;
+  var pRight = ($(window).width() - pWidth) - pLeft;
   
-  this.divTop.style.left = playerOffset.left + "px";
-  this.divTop.style.top = headerOffset.top + "px";
-  this.divTop.style.height = playerOffset.top + "px";
-  this.divTop.style.width = (playerOffset.right - playerOffset.left) + "px";
+  var $header = $('#masthead-positioner');
+  var headerOffset = $header.offset();
+  var hHeight = $header.height();
+  //var hWidth = $header.width()
+  var hTop = headerOffset.top;
+  var hLeft = headerOffset.left;
+  var hBottom = ($(window).height() - hHeight) - hTop;
+  //var hRight = ($(window).width() - hWidth) - hLeft;
   
-  this.divLeft.style.left = headerOffset.left + "px";
-  this.divLeft.style.top = headerOffset.bottom + "px";
-  this.divLeft.style.height = (screen.availHeight - headerOffset.bottom) + "px";
-  this.divLeft.style.width = playerOffset.left + "px";
+  this.divTop.style.left = pLeft + "px";
+  this.divTop.style.top = hTop + "px";
+  this.divTop.style.height = pTop + "px";
+  this.divTop.style.width = pWidth + "px";
+  
+  this.divLeft.style.left = hLeft + "px";
+  this.divLeft.style.top = hBottom + "px";
+  this.divLeft.style.height = (screen.availHeight - hBottom) + "px";
+  this.divLeft.style.width = pLeft + "px";
 
-  this.divRight.style.left = playerOffset.right + "px";
-  this.divRight.style.top = headerOffset.bottom + "px";
-  this.divRight.style.height = (screen.availHeight - headerOffset.bottom) + "px";
-  this.divRight.style.width = (getDocWidth() - playerOffset.right) + "px";
+  this.divRight.style.left = pRight + "px";
+  this.divRight.style.top = hBottom + "px";
+  this.divRight.style.height = (screen.availHeight - hBottom) + "px";
+  this.divRight.style.width = (getDocWidth() - pRight) + "px";
   
-  this.divBottom.style.left = playerOffset.left + "px";
-  this.divBottom.style.height = (screen.availHeight - headerOffset.bottom) + "px";
-  this.divBottom.style.width = (playerOffset.right - playerOffset.left) + "px";
+  this.divBottom.style.left = pLeft + "px";
+  this.divBottom.style.height = (screen.availHeight - hBottom) + "px";
+  this.divBottom.style.width = pWidth + "px";
   
-  this.divHeader.style.left = headerOffset.left + "px";
-  this.divHeader.style.top = headerOffset.top + "px";
-  this.divHeader.style.height = headerOffset.bottom + "px";
+  this.divHeader.style.left = hLeft + "px";
+  this.divHeader.style.top = hTop + "px";
+  this.divHeader.style.height = hBottom + "px";
   
   if (!this.debugged) {
-    console.log("playerOffset = " + playerOffset);
-    console.log("playerOffset.left = " + playerOffset.left);
-    console.log("playerOffset.right = " + playerOffset.right);
-    console.log("playerOffset.top = " + playerOffset.top);
-    console.log("playerOffset.bottom = " + playerOffset.bottom);
+    //console.log("pHeight = " + pHeight);
+    console.log("pWidth = " + pWidth);
+    console.log("pLeft = " + pLeft);
+    console.log("pRight = " + pRight);
+    console.log("pTop = " + pTop);
+    console.log("pBottom = " + pBottom);
     
-    console.log("headerOffset = " + headerOffset);
-    console.log("headerOffset.left = " + headerOffset.left);
-    console.log("headerOffset.right = " + headerOffset.right);
-    console.log("headerOffset.top = " + headerOffset.top);
-    console.log("headerOffset.bottom = " + headerOffset.bottom);
+    console.log("hHeight = " + hHeight);
+    //console.log("hWidth = " + hWidth);
+    console.log("hLeft = " + hLeft);
+    //console.log("hRight = " + hRight);
+    console.log("hTop = " + hTop);
+    console.log("hBottom = " + hBottom);
     this.debugged = true;
   }
 }

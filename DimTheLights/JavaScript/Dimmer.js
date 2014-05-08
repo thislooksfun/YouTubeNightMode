@@ -329,15 +329,16 @@ function installReqs() {
     document.head.appendChild(jq);
   }
 }
-function checkReqsInstalled() {
-  if (document.getElementById('jqueryScript') != null) {
+function checkJqueryInstalled() {
+  if ($ != null) {
     dimmer.init();
   } else {
-    setTimeout(function() { checkReqsInstalled(); }, 100);
+    setTimeout(function() { checkJqueryInstalled(); }, 50);
+    console.log("Jquery not found, waiting...");
   }
 }
 
 if (!isInstalled()) {
   installReqs();
-  setTimeout(function() { checkReqsInstalled(); }, 100);
+  setTimeout(function() { checkJqueryInstalled(); }, 50);
 }

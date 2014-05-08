@@ -214,6 +214,10 @@ dimmer.checkOverlays = function()
     var div = $(divs[i]);
     div.css('height', div.prev().css('height'));
   }
+  
+  if (dimmer.isNight && document.activeElement == document.getElementById('masthead-search-term')) {
+    dimmer.setState('day');
+  }
 }
 
 function hasClass(element, className) {

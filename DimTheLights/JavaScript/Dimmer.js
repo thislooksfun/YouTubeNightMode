@@ -136,6 +136,24 @@ dimmer.positionDivs = function()
   this.divHeader.style.top = $header.css('top') + "px";
   this.divHeader.style.height = ($header.css('bottom') - $header.css('top')) + "px";
   this.divHeader.style.width = "100%";
+  
+  if (!this.hasDebugged) {
+    console.log("$player = " + $player);
+    console.log("$player.css('left') = " + $player.css('left'));
+    console.log("$player.css('right') = " + $player.css('right'));
+    console.log("$player.css('top') = " + $player.css('top'));
+    console.log("$player.css('bottom') = " + $player.css('bottom'));
+    console.log("$player.css('height') = " + $player.css('height'));
+    console.log("$player.css('width') = " + $player.css('width'));
+    console.log("$header = " + $header);
+    console.log("$header.css('left') = " + $header.css('left'));
+    console.log("$header.css('right') = " + $header.css('right'));
+    console.log("$header.css('top') = " + $header.css('top'));
+    console.log("$header.css('bottom') = " + $header.css('bottom'));
+    console.log("$header.css('height') = " + $header.css('height'));
+    console.log("$header.css('width') = " + $header.css('width'));
+    this.hasDebugged = true;
+  }
 }
 
 dimmer.onWindowResize = function()

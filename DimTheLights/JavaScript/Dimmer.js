@@ -52,6 +52,7 @@ dimmer.init = function()
     this.divBottom = document.getElementById('dimmerDivBottom');
     this.divHeader = document.getElementById('dimmerDivHeader');
     this.divPopouts = document.getElementsByName('dimmerDivPopout');
+    this.divMenu = document.getElementById('dimmerDivMenu');
     this.isNight = (this.dimmerButton.innerHTML == "Dim")
   }
   
@@ -70,7 +71,7 @@ dimmer.init = function()
   };
   $(window).scroll(fixDiv);
   
-  document.getElementById('appbar-settings-menu').style.zIndex = 1999999997;
+  document.getElementById('appbar-settings-menu').style.zIndex = 2147483646;
   
   this.setState("night");
 }
@@ -99,8 +100,15 @@ dimmer.initDivs = function()
   
   this.divHeader = document.createElement('div');
   this.divHeader.id = 'dimmerDivHeader';
-  this.divHeader.setAttribute('style', 'background: #000; opacity: 0.0; z-index: 2147483647; pointer-events: none; position: fixed');
+  this.divHeader.setAttribute('style', 'background: #000; opacity: 0.0; z-index: 2147483646; pointer-events: none; position: fixed');
   document.body.appendChild(this.divHeader);
+  
+  this.divMenu = document.createElement('div');
+  this.divMenu.id = 'dimmerDivMenu';
+  this.divMenu.setAttribute('style', 'background: #000; opacity: 0.0; z-index: 2147483647; pointer-events: none; position: absolute; top: 0px; width: 100%; border-radius: 3px; -webkit-border-radius: 3px')
+  document.getElementById('appbar-settings-menu').appendChild(this.divMenu);
+  
+  //<div style="left: -1px; top: -1px; height: 163px; width: 157px; background-position: initial initial; background-repeat: initial initial;"></div>
   
   this.positionDivs();
 }
@@ -134,6 +142,12 @@ dimmer.positionDivs = function()
   this.divHeader.style.top = "0px";
   this.divHeader.style.height = headerRect.bottom + "px";
   this.divHeader.style.width = "100%";
+  
+  var menuRect = document.getElementById('appbar-settings-menu').getBoundingClientRect();
+  this.divMenu.style.left = "-1px";
+  this.divMenu.style.top = "-1px";
+  this.divMenu.style.height = (menuRect.height + 2) + "px";
+  this.divMenu.style.width = (menuRect.width + 2) + "px";
   
   this.topPos = $('#dimmerDivBottom').offset().top;
 }
@@ -205,6 +219,8 @@ dimmer.checkOverlays = function()
   if (dimmer.isNight && document.activeElement == document.getElementById('masthead-search-term')) {
     dimmer.setState('day');
   }
+  
+  
 }
 
 function hasClass(element, className) {

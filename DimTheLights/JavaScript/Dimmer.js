@@ -64,8 +64,10 @@ dimmer.init = function()
     var top = 50;
     if ($(window).scrollTop() > (dimmer.topPos - top)) {
       $cache.css({'position': 'fixed', 'top': top + 'px'});
+      console.log("[1] " + $cache.css('top') + ", " + top);
     } else {
       $cache.css({'position': 'absolute', 'top': dimmer.topPos + 'px'});
+      console.log("[2] " + $cache.css('top') + ", " + dimmer.topPos);
     }
   };
   $(window).scroll(fixDiv);

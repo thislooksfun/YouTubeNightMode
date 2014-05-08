@@ -158,6 +158,7 @@ dimmer.positionDivs = function()
     console.log("headerOffset.right = " + headerOffset.right);
     console.log("headerOffset.top = " + headerOffset.top);
     console.log("headerOffset.bottom = " + headerOffset.bottom);
+    this.debugged = true;
   }
 }
 

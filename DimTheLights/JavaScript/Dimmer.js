@@ -70,8 +70,6 @@ dimmer.init = function()
   };
   $(window).scroll(fixDiv);
   
-  this.topPos = $('#dimmerDivBottom').offset().top;
-  
   document.getElementById('appbar-settings-menu').style.zIndex = 1999999997;
   
   this.setState("night");
@@ -136,6 +134,8 @@ dimmer.positionDivs = function()
   this.divHeader.style.top = "0px";
   this.divHeader.style.height = headerRect.bottom + "px";
   this.divHeader.style.width = "100%";
+  
+  this.topPos = $('#dimmerDivBottom').offset().top;
 }
 
 dimmer.onWindowResize = function()
@@ -156,7 +156,6 @@ dimmer.checkSize = function()
     dimmer.oldClass = match.exec(player.className)[0];
     
     dimmer.positionDivs();
-    this.topPos = $('#dimmerDivBottom').offset().top;
   }
   if (dimmer.oldHeight != getDocHeight())
   {

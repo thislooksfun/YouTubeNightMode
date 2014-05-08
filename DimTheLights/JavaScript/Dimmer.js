@@ -107,6 +107,7 @@ dimmer.initDivs = function()
   this.divResults = document.createElement('div');
   this.divResults.id = 'dimmerDivResults';
   this.divResults.setAttribute('style', 'background: #000; opacity: 0.0; z-index: 2147483647; pointer-events: none; position: relative');
+  document.body.appendChild(this.divResults);
   
   this.positionDivs();
 }
@@ -140,9 +141,6 @@ dimmer.positionDivs = function()
   this.divHeader.style.top = "0px";
   this.divHeader.style.height = headerRect.bottom + "px";
   this.divHeader.style.width = "100%";
-  
-  this.divResults.style.height = "100%";
-  this.divResults.style.width = "100%";
 }
 
 dimmer.onWindowResize = function()
@@ -199,14 +197,16 @@ dimmer.checkOverlays = function()
         }
       }
     }
-    
-    var results = document.getElementsByClassName("gssb_k")[0];
-    if (results != null && dimmer.divResults.parentNode != results) {
-      results.appendChild(dimmer.divResults);
-    } else {
-      console.log(dimmer.divResults.parentNode);
-    }
     dimmer.frameCount = frames.length;
+  }
+  
+  var results = document.getElementsByClassName("gssb_k")[0];
+  if (results != null) {
+    dimmer.divResults.style.left = results.style.left;
+    dimmer.divResults.style.top = results.style.top;
+    dimmer.divResults.style.height = results.style.height;
+    dimmer.divResults.style.width = results.style.width;
+    dimmer.divResults.style.display = results.style.display;
   }
   
   var divs = dimmer.divPopouts;

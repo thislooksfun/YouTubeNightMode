@@ -350,7 +350,7 @@ function installReqs() {
   }
 }
 function checkJqueryInstalled() {
-  if ($ != null) {
+  if (typeof jQuery != 'undefined') {
     dimmer.init();
   } else {
     setTimeout(function() { checkJqueryInstalled(); }, 50);

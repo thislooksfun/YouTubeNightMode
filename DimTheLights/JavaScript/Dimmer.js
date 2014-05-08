@@ -34,7 +34,7 @@ dimmer.init = function()
     window.setInterval(this.checkSize, 40);
     if (window.onresize != null) {
       this.oldResizeEvent = window.onresize;
-      window.onresize = dimmer.onWindowResize;
+      window.onresize = function() { dimmer.onWindowResize(); };
     }
     
     this.isNight = false;
@@ -72,7 +72,7 @@ dimmer.init = function()
   };
   $(window).scroll(fixDiv);
   
-  this.topPos = $('#dimmerDivBottom').offset().top;
+  this.topPos = $('#player-api').offset().bottom;
   
   document.getElementById('appbar-settings-menu').style.zIndex = 1999999997;
   
@@ -106,38 +106,45 @@ dimmer.initDivs = function()
   this.divHeader.setAttribute('style', 'background: #000; opacity: 0.0; z-index: 2147483647; pointer-events: none; position: fixed');
   document.body.appendChild(this.divHeader);
   
+  this.initDivPos();
+}
+
+dimmer.initDivPos = function()
+{
+  this.divBottom.style.top = $('#player-api').offset().bottom + "px";
+  
+  this.divHeader.style.width = "100%";
+  
   this.positionDivs();
 }
 
 dimmer.positionDivs = function()
 {
-  var playerRect = document.getElementById('player-api').getBoundingClientRect();
-  var headerRect = document.getElementById('masthead-positioner').getBoundingClientRect();
+  var playerOffset = $('#player-api').offset();
+  var headerOffset = $('#masthead-positioner').offset();
   
-  this.divTop.style.left = playerRect.left + "px";
-  this.divTop.style.top = "0px";
-  this.divTop.style.height = playerRect.top + "px";
-  this.divTop.style.width = (playerRect.right - playerRect.left) + "px";
+  this.divTop.style.left = playerOffset.left + "px";
+  this.divTop.style.top = headerOffset.top + "px";
+  this.divTop.style.height = playerOffset.top + "px";
+  this.divTop.style.width = (playerOffset.right - playerOffset.left) + "px";
   
-  this.divLeft.style.left = "0px";
-  this.divLeft.style.top = headerRect.bottom + "px";
-  this.divLeft.style.height = (screen.availHeight - headerRect.bottom) + "px";
-  this.divLeft.style.width = playerRect.left + "px";
+  this.divLeft.style.left = headerOffset.left + "px";
+  this.divLeft.style.top = headerOffset.bottom + "px";
+  this.divLeft.style.height = (screen.availHeight - headerOffset.bottom) + "px";
+  this.divLeft.style.width = playerOffset.left + "px";
 
-  this.divRight.style.left = playerRect.right + "px";
-  this.divRight.style.top = headerRect.bottom + "px";
-  this.divRight.style.height = (screen.availHeight - headerRect.bottom) + "px";
-  this.divRight.style.width = (getDocWidth() - playerRect.right) + "px";
+  this.divRight.style.left = playerOffset.right + "px";
+  this.divRight.style.top = headerOffset.bottom + "px";
+  this.divRight.style.height = (screen.availHeight - headerOffset.bottom) + "px";
+  this.divRight.style.width = (getDocWidth() - playerOffset.right) + "px";
   
-  this.divBottom.style.left = playerRect.left + "px";
-  this.divBottom.style.top = playerRect.bottom + "px";
-  this.divBottom.style.height = (screen.availHeight - headerRect.bottom) + "px";
-  this.divBottom.style.width = (playerRect.right - playerRect.left) + "px";
+  this.divBottom.style.left = playerOffset.left + "px";
+  this.divBottom.style.height = (screen.availHeight - headerOffset.bottom) + "px";
+  this.divBottom.style.width = (playerOffset.right - playerOffset.left) + "px";
   
-  this.divHeader.style.left = "0px";
-  this.divHeader.style.top = "0px";
-  this.divHeader.style.height = headerRect.bottom + "px";
-  this.divHeader.style.width = "100%";
+  this.divHeader.style.left = headerOffset.left + "px";
+  this.divHeader.style.top = headerOffset.top + "px";
+  this.divHeader.style.height = headerOffset.bottom + "px";
 }
 
 dimmer.onWindowResize = function()
@@ -145,6 +152,7 @@ dimmer.onWindowResize = function()
   if (this.oldResizeEvent != null) {
     this.oldResizeEvent();
   }
+  
   this.positionDivs();
 }
 

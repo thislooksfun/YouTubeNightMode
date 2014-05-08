@@ -143,6 +143,7 @@ dimmer.onWindowResize = function()
   if (this.oldResizeEvent != null) {
     this.oldResizeEvent();
   }
+  
   this.positionDivs();
 }
 
@@ -155,6 +156,7 @@ dimmer.checkSize = function()
     dimmer.oldClass = match.exec(player.className)[0];
     
     dimmer.positionDivs();
+    this.topPos = $('#dimmerDivBottom').offset().top;
   }
   if (dimmer.oldHeight != getDocHeight())
   {

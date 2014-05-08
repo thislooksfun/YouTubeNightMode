@@ -108,8 +108,6 @@ dimmer.initDivs = function()
   this.divMenu.setAttribute('style', 'background: #000; opacity: 0.0; z-index: 2147483647; pointer-events: none; position: absolute')
   document.getElementById('appbar-settings-menu').appendChild(this.divMenu);
   
-  //<div style="left: -1px; top: -1px; height: 163px; width: 157px; background-position: initial initial; background-repeat: initial initial;"></div>
-  
   this.positionDivs();
 }
 

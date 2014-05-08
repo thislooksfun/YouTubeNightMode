@@ -109,32 +109,32 @@ dimmer.initDivs = function()
 
 dimmer.positionDivs = function()
 {
-  var playerRect = document.getElementById('player-api').getBoundingClientRect();
-  var headerRect = document.getElementById('masthead-positioner').getBoundingClientRect();
+  var $player = $('#player-api');
+  var $header = $('#masthead-positioner');
   
-  this.divTop.style.left = playerRect.left + "px";
-  this.divTop.style.top = "0px";
-  this.divTop.style.height = playerRect.top + "px";
-  this.divTop.style.width = (playerRect.right - playerRect.left) + "px";
+  this.divTop.style.left = $player.css('left') + "px";
+  this.divTop.style.top = $header.css('top') + "px";
+  this.divTop.style.height = $player.css('top') + "px";
+  this.divTop.style.width = $player.css('width') + "px";
   
-  this.divLeft.style.left = "0px";
-  this.divLeft.style.top = headerRect.bottom + "px";
-  this.divLeft.style.height = (screen.availWidth - headerRect.bottom) + "px";
-  this.divLeft.style.width = playerRect.left + "px";
+  this.divLeft.style.left = $header.css('bottom') + "px";
+  this.divLeft.style.top = $header.css('bottom') + "px";
+  this.divLeft.style.height = (screen.availHeight - $header.css('bottom')) + "px";
+  this.divLeft.style.width = ($player.css('left') - $header.css('left')) + "px";
 
-  this.divRight.style.left = playerRect.right + "px";
-  this.divRight.style.top = headerRect.bottom + "px";
-  this.divRight.style.height = (screen.availWidth - headerRect.bottom) + "px";
-  this.divRight.style.width = (getDocWidth() - playerRect.right) + "px";
+  this.divRight.style.left = $player.css('right') + "px";
+  this.divRight.style.top = $header.css('bottom') + "px";
+  this.divRight.style.height = (screen.availHeight - $header.css('bottom')) + "px";
+  this.divRight.style.width = (getDocWidth() - $player.css('right')) + "px";
   
-  this.divBottom.style.left = playerRect.left + "px";
-  this.divBottom.style.top = playerRect.bottom + "px";
-  this.divBottom.style.height = (screen.availWidth - headerRect.bottom) + "px";
-  this.divBottom.style.width = (playerRect.right - playerRect.left) + "px";
+  this.divBottom.style.left = $player.css('left') + "px";
+  this.divBottom.style.top = $player.css('bottom') + "px";
+  this.divBottom.style.height = (screen.availHeight - $header.css('bottom')) + "px";
+  this.divBottom.style.width = $player.css('width') + "px";
   
-  this.divHeader.style.left = "0px";
-  this.divHeader.style.top = "0px";
-  this.divHeader.style.height = headerRect.bottom + "px";
+  this.divHeader.style.left = $header.css('bottom') + "px";
+  this.divHeader.style.top = $header.css('top') + "px";
+  this.divHeader.style.height = ($header.css('bottom') - $header.css('top')) + "px";
   this.divHeader.style.width = "100%";
 }
 

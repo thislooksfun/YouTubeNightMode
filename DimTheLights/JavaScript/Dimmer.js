@@ -104,11 +104,6 @@ dimmer.initDivs = function()
   this.divHeader.setAttribute('style', 'background: #000; opacity: 0.0; z-index: 2147483647; pointer-events: none; position: fixed');
   document.body.appendChild(this.divHeader);
   
-  this.divResults = document.createElement('div');
-  this.divResults.id = 'dimmerDivResults';
-  this.divResults.setAttribute('style', 'background: #000; opacity: 0.0; z-index: 2147483647; pointer-events: none; position: relative');
-  document.body.appendChild(this.divResults);
-  
   this.positionDivs();
 }
 
@@ -200,15 +195,6 @@ dimmer.checkOverlays = function()
     dimmer.frameCount = frames.length;
   }
   
-  var results = document.getElementsByClassName("gssb_k")[0];
-  if (results != null) {
-    dimmer.divResults.style.left = results.style.left;
-    dimmer.divResults.style.top = results.style.top;
-    dimmer.divResults.style.height = results.style.height;
-    dimmer.divResults.style.width = results.style.width;
-    dimmer.divResults.style.display = results.style.display;
-  }
-  
   var divs = dimmer.divPopouts;
   for (var i = 0; i < divs.length; i++) {
     var div = $(divs[i]);
@@ -255,7 +241,6 @@ dimmer.setNight = function()
   this.divRight.style.opacity = this.opacity/100;
   this.divBottom.style.opacity = this.opacity/100;
   this.divHeader.style.opacity = this.opacity/100;
-  this.divResults.style.opacity = this.opacity/100;
   for (var i = 0; i < this.divPopouts.length; i++) {
     this.divPopouts[i].style.opacity = this.opacity/100;
   }
@@ -278,7 +263,6 @@ dimmer.setDay = function()
   this.divRight.style.opacity = this.opacity/100;
   this.divBottom.style.opacity = this.opacity/100;
   this.divHeader.style.opacity = this.opacity/100;
-  this.divResults.style.opacity = this.opacity/100;
   for (var i = 0; i < this.divPopouts.length; i++) {
     this.divPopouts[i].style.opacity = this.opacity/100;
   }

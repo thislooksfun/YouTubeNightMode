@@ -34,7 +34,7 @@ dimmer.init = function()
     window.setInterval(this.checkSize, 40);
     if (window.onresize != null) {
       this.oldResizeEvent = window.onresize;
-      window.onresize = function() { dimmer.onWindowResize(); };
+      window.onresize = dimmer.onWindowResize;
     }
     
     this.isNight = false;
@@ -64,15 +64,13 @@ dimmer.init = function()
     var top = 50;
     if ($(window).scrollTop() > (dimmer.topPos - top)) {
       $cache.css({'position': 'fixed', 'top': top + 'px'});
-      console.log("[1] " + $cache.css('top') + ", " + top);
     } else {
       $cache.css({'position': 'absolute', 'top': dimmer.topPos + 'px'});
-      console.log("[2] " + $cache.css('top') + ", " + dimmer.topPos);
     }
   };
   $(window).scroll(fixDiv);
   
-  this.topPos = $('#player-api').offset().bottom;
+  this.topPos = $('#dimmerDivBottom').offset().top;
   
   document.getElementById('appbar-settings-menu').style.zIndex = 1999999997;
   
@@ -106,80 +104,38 @@ dimmer.initDivs = function()
   this.divHeader.setAttribute('style', 'background: #000; opacity: 0.0; z-index: 2147483647; pointer-events: none; position: fixed');
   document.body.appendChild(this.divHeader);
   
-  this.initDivPos();
-}
-
-dimmer.initDivPos = function()
-{
-  var $player = $('#player-api');
-  var playerOffset = $player.offset();
-  var pBottom = playerOffset.top + $player.height();
-  this.divBottom.style.top = pBottom + "px";
-  
-  this.divHeader.style.width = "100%";
-  
   this.positionDivs();
 }
 
 dimmer.positionDivs = function()
 {
-  var $player = $('#player-api');
-  var playerOffset = $player.offset();
-  var pHeight = $player.height();
-  var pWidth = $player.width();
-  var pTop = playerOffset.top;
-  var pLeft = playerOffset.left;
-  var pBottom = pTop + pHeight;
-  var pRight = pLeft + pWidth;
+  var playerRect = document.getElementById('player-api').getBoundingClientRect();
+  var headerRect = document.getElementById('masthead-positioner').getBoundingClientRect();
   
-  var $header = $('#masthead-positioner');
-  var headerOffset = $header.offset();
-  var hHeight = $header.height();
-  var hWidth = $header.width(); //Unused
-  var hTop = headerOffset.top;
-  var hLeft = headerOffset.left;
-  var hBottom = hTop + hHeight;
-  var hRight = hLeft + hWidth; //Unused
+  this.divTop.style.left = playerRect.left + "px";
+  this.divTop.style.top = "0px";
+  this.divTop.style.height = playerRect.top + "px";
+  this.divTop.style.width = (playerRect.right - playerRect.left) + "px";
   
-  this.divTop.style.left = pLeft + "px";
-  this.divTop.style.top = hTop + "px";
-  this.divTop.style.height = pTop + "px";
-  this.divTop.style.width = pWidth + "px";
-  
-  this.divLeft.style.left = hLeft + "px";
-  this.divLeft.style.top = hBottom + "px";
-  this.divLeft.style.height = (screen.availHeight - hBottom) + "px";
-  this.divLeft.style.width = pLeft + "px";
+  this.divLeft.style.left = "0px";
+  this.divLeft.style.top = headerRect.bottom + "px";
+  this.divLeft.style.height = (screen.availWidth - headerRect.bottom) + "px";
+  this.divLeft.style.width = playerRect.left + "px";
 
-  this.divRight.style.left = pRight + "px";
-  this.divRight.style.top = hBottom + "px";
-  this.divRight.style.height = (screen.availHeight - hBottom) + "px";
-  this.divRight.style.width = (getDocWidth() - pRight) + "px";
+  this.divRight.style.left = playerRect.right + "px";
+  this.divRight.style.top = headerRect.bottom + "px";
+  this.divRight.style.height = (screen.availWidth - headerRect.bottom) + "px";
+  this.divRight.style.width = (getDocWidth() - playerRect.right) + "px";
   
-  this.divBottom.style.left = pLeft + "px";
-  this.divBottom.style.height = (screen.availHeight - hBottom) + "px";
-  this.divBottom.style.width = pWidth + "px";
+  this.divBottom.style.left = playerRect.left + "px";
+  this.divBottom.style.top = playerRect.bottom + "px";
+  this.divBottom.style.height = (screen.availWidth - headerRect.bottom) + "px";
+  this.divBottom.style.width = (playerRect.right - playerRect.left) + "px";
   
-  this.divHeader.style.left = hLeft + "px";
-  this.divHeader.style.top = hTop + "px";
-  this.divHeader.style.height = hBottom + "px";
-  
-  if (!this.debugged) {
-    console.log("pHeight = " + pHeight);
-    console.log("pWidth = " + pWidth);
-    console.log("pLeft = " + pLeft);
-    console.log("pRight = " + pRight);
-    console.log("pTop = " + pTop);
-    console.log("pBottom = " + pBottom);
-    
-    console.log("hHeight = " + hHeight);
-    console.log("hWidth = " + hWidth);
-    console.log("hLeft = " + hLeft);
-    console.log("hRight = " + hRight);
-    console.log("hTop = " + hTop);
-    console.log("hBottom = " + hBottom);
-    this.debugged = true;
-  }
+  this.divHeader.style.left = "0px";
+  this.divHeader.style.top = "0px";
+  this.divHeader.style.height = headerRect.bottom + "px";
+  this.divHeader.style.width = "100%";
 }
 
 dimmer.onWindowResize = function()
@@ -187,7 +143,6 @@ dimmer.onWindowResize = function()
   if (this.oldResizeEvent != null) {
     this.oldResizeEvent();
   }
-  
   this.positionDivs();
 }
 
